@@ -13,7 +13,7 @@ require_once( $_SERVER['DOCUMENT_ROOT'] . '/wp-admin/includes/media.php' );
 <div class="breadcrumbs">
   <div class="container breadcrumbs__inner">
     <a href="/" class="breadcrumbs__link">Главная</a>
-    <span class="breadcrumbs__current">Продать технику</span>
+    <span class="breadcrumbs__current"><?php the_title(); ?></span>
   </div>
 </div>
 <div class="container">
@@ -22,63 +22,31 @@ require_once( $_SERVER['DOCUMENT_ROOT'] . '/wp-admin/includes/media.php' );
   </div>
 </div>
 
-<?php
-$args = array();
-$posts = new WP_Query( $args );
-while( $posts->have_posts() ) :
-
-  $posts->the_post();
-
-endwhile;
-wp_reset_postdata();
-?>
 
 <?php
 require_once( ABSPATH . 'wp-admin/includes/image.php' );
 require_once( ABSPATH . 'wp-admin/includes/file.php' );
 require_once( ABSPATH . 'wp-admin/includes/media.php' );
 ?>
-
-
-
-<form id="featured_upload" method="post" action="#" enctype="multipart/form-data">
-  <input type="file" name="my_image_upload[]" id="my_image_upload[]"  multiple="multiple" />
-  <input type="hidden" name="post_id" id="post_id" value="555" />
-  <input id="submit_my_image_upload" name="submit_my_image_upload" type="submit" value="Upload" />
-</form>
-
-<?php
-/* Эти файлы должны быть подключены в лицевой части (фронт-энде). */
-require_once( ABSPATH . 'wp-admin/includes/image.php' );
-require_once( ABSPATH . 'wp-admin/includes/file.php' );
-require_once( ABSPATH . 'wp-admin/includes/media.php' );
-
-/* Позволим WordPress перехватить загрузку. */
-/* не забываем указать атрибут name поля input - 'my_image_upload' */
-$attachment_id = media_handle_upload( 'my_image_upload', $_POST['post_id'] );
-
-if ( is_wp_error( $attachment_id ) ) {
-  echo "Ошибка загрузки медиафайла.";
-} else {
-  echo "Медиафайл был успешно загружен!";
-}
-
-print_r($attachment_id);
-
-?>
-
 
 <div class="form">
   <div class="container">
-    <form action="<?php echo admin_url('admin-ajax.php?action=send_form'); ?>" method="post" class="form__inner">
-      <div class="form__row">
-        <p class="form__text">Стоимость</p>
-        <input name="price" type="text" class="form__input">
-      </div>
+    <form action="<?php echo admin_url('admin-ajax.php?action=send_form'); ?>" method="post" id="sell_form" enctype="multipart/form-data" class="form__inner">
+
+      <?php 
+      $rent_sale = get_post_meta($post->ID, 'meta_page_rent_sale', true);
+      if($rent_sale == "Продажа") {
+        echo '<div class="form__row">';
+        echo '<p class="form__text">Стоимость</p> ';
+        echo '<input name="price" type="text" class="form__input">';
+        echo '</div>';
+      } 
+      ?>      
       <div class="form__row">
         <p class="form__text">Категория</p>
+        <input type="hidden" name="rent_sale" value="<?php echo $rent_sale;?>">
 
-        <select name="category" id="">
+        <select name="category" class="form__input" id="category" required>
           <option value="buldozer">Бульдозеры</option>
           <option value="excavator">Экскаваторы</option>
           <option value="pogruzchik">Погрузчики</option>
@@ -90,15 +58,17 @@ print_r($attachment_id);
         </select>
       </div>
       <div class="form__row">
-        <p class="form__text">Марка</p>
-        <input type="text" name="brand" class="form__input">
+        <p class="form__text" required>Марка</p>
+        <!-- <input type="text" name="brand" id="brand" class="form__input"> -->
+        <select name="brand" class="form__input" id="brand">
+        </select>
       </div>
       <div class="form__row">
-        <p class="form__text">Модель</p>
+        <p class="form__text" required>Модель</p>
         <input type="text" name="model" class="form__input">
       </div>
       <div class="form__row">
-        <p class="form__text">Год выпуска</p>
+        <p class="form__text" required>Год выпуска</p>
         <input type="number" name="year" class="form__input">
       </div>
       <div class="form__row">
@@ -111,40 +81,29 @@ print_r($attachment_id);
       </div>
       <div class="form__row">
         <p class="form__text">Телефон</p>
-        <input type="text" name="phone" class="form__input">
-
-        <?php
-
-
-
-        echo '<input type="file" name="upload_attachment[]" multiple="multiple"  />';
-        ?>
-
+        <input type="text" name="phone" id="phone" class="form__input">
 
       </div>
+      <div class="form__row">
+        <div class="file-upload">
+         <label>
+          <input type="file" id="photo" name="photo[]" multiple="multiple" required/>
+          <span>Выберите файл</span>
+        </label>
+      </div>
+    </div>
 
-      <div class="form__row form__row--wide">
-        <p class="form__text">Комментарии</p>
-        <textarea type="text" name="comment" class="form__input form__input--big"></textarea>
-      </div>
-      <div class="form__row form__row--wide">
-        <p class="form__text">Дополнительное<br> оборудование</p>
-        <textarea type="text" name="add_equip" class="form__input form__input--big"></textarea>
-      </div>
-      <input type="submit" id="form_send" class="form__submit" name="" value="Опубликовать">
-    </form>
-  </div>
+    <div class="form__row form__row--wide">
+      <p class="form__text">Комментарии</p>
+      <textarea type="text" name="comment" class="form__input form__input--big"></textarea>
+    </div>
+    <div class="form__row form__row--wide">
+      <p class="form__text">Дополнительное<br> оборудование</p>
+      <textarea type="text" name="add_equip" class="form__input form__input--big"></textarea>
+    </div>
+    <input type="submit" id="form_send" class="form__submit form-send-mail" name="" value="Опубликовать">
+  </form>
 </div>
-
-<div class="form">
-  <div class="container">
-    <?php // the_content(); ?>
-  </div>
 </div>
-
-
-
-
-
 
 <?php get_footer(); ?>
