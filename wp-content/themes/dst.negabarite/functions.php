@@ -359,7 +359,12 @@ function my_handle_attachment($file_handler, $post)
 /*
 /* Функция получения названия города по поддомену
 */
+<<<<<<< HEAD
 $subs = array(
+=======
+function get_cityname($sub) {
+	$subs = array(
+>>>>>>> master
 		'novosibirsk' => 'Новосибирск', 
 		'ufa' => 'Уфа',
 		'ekaterinburg' => 'Екатеринбург', 
@@ -376,8 +381,11 @@ $subs = array(
         'saintpetersburg' => 'Санкт-Петербург',
         'krasnodar' => 'Краснодар'
 	);
+<<<<<<< HEAD
 
 function get_cityname($sub) {
+=======
+>>>>>>> master
     return $subs[$sub];
 }
 
