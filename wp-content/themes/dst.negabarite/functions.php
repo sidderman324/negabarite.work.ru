@@ -415,7 +415,26 @@ function send_form() {
 			} 
 		} 
 	}
+<<<<<<< HEAD
 	wp_redirect($url); 
+=======
+
+
+
+	echo '<pre>';
+	print_r($post_data);
+	echo '</pre>';
+	echo '<br>';
+	echo '<br>';
+	echo '<br>';
+	echo '<br>';
+	print_r($newupload);
+	print_r($file);
+	print_r($_FILES);
+	print_r();
+
+// wp_redirect('/'); // Перенаправление после успешной отправки из формы на статическую системную страницу
+>>>>>>> 2578c1bea50f40548a2771b29211480d1d6417cf
 
 	/* Завершаем выполнение ajax */
 	die();
@@ -425,6 +444,7 @@ add_action("wp_ajax_send_form", "send_form");
 add_action("wp_ajax_nopriv_send_form", "send_form");
 
 
+<<<<<<< HEAD
 // function ajax_avatar() {
 // 	require_once( ABSPATH . 'wp-admin/includes/image.php' );
 // 	require_once( ABSPATH . 'wp-admin/includes/file.php' );
@@ -437,3 +457,53 @@ add_action("wp_ajax_nopriv_send_form", "send_form");
 // 	}
 // 	die();
 // };
+=======
+function my_handle_attachment($file_handler, $post)
+{
+	if ($_FILES[$file_handler]['error'] !== UPLOAD_ERR_OK) __return_false();
+	require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+	require_once(ABSPATH . "wp-admin" . '/includes/file.php');
+	require_once(ABSPATH . "wp-admin" . '/includes/media.php');
+
+	$attach_id = media_handle_upload( $file_handler, $post );
+	if (is_numeric($attach_id )) 
+	{
+		update_post_meta( $post, '_product_image_gallery', $attach_id );
+		array_push($post, '_product_image_gallery', $attach_id);
+	}
+	return $attach_id;  
+} 
+
+/*
+/* Функция получения названия города по поддомену
+*/
+
+function get_cityname($sub) {
+	$subs = array(
+		'novosibirsk' => 'Новосибирск', 
+		'ufa' => 'Уфа',
+		'ekaterinburg' => 'Екатеринбург', 
+		'krasnoyarsk' => 'Красноярск',
+		'novgorod' => 'Новгород',
+		'perm' => 'Пермь',
+		'kazan' => 'Казань',
+		'voronezh' => 'Воронеж',
+		'chelyabinsk' => 'Челябинск',
+		'volgograd' => 'Волгоград',
+		'omsk' => 'Омск',
+        'rostovnadonu' => 'Ростов-на-Дону',
+        'moscow' => 'Москва',
+        'saintpetersburg' => 'Санкт-Петербург',
+        'krasnodar' => 'Краснодар'
+	);
+    return $subs[$sub];   
+}
+
+/*
+/* Функция получения субдомена
+*/
+function get_sub() {
+    $sub = explode('.',$_SERVER['SERVER_NAME']); //разбиваем юрл для определения субдомена 
+    return $sub[0];
+}
+>>>>>>> 2578c1bea50f40548a2771b29211480d1d6417cf
