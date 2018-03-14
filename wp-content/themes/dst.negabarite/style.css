@@ -1,0 +1,14 @@
+html {
+    margin-top: 0 !important;
+}
+
+.gallery__nav-wrapper {
+	display: block;
+	text-align: left;
+}
+
+.gallery__slide {
+	width: 189px;
+	height: 120px;
+	display: inline-block;
+}
