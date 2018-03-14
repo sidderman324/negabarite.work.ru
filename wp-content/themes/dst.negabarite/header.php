@@ -59,29 +59,36 @@ html { margin-top: 0 !important; margin-bottom: 0 !important; }
     }
     // echo $subdomain[0];
     ?>
-
+    
+    <?php 
+      if (get_cityname(get_sub())!=''){
+          $cur_city = get_cityname(get_sub());
+      }else{
+          $cur_city = Россия;
+      }
+      ?>
 
     <div class="location">
-      <p class="location__title">Краснодар</p>
+      <p class="location__title"><?=$cur_city?></p>
       <div class="location__select">
         <p class="location__text">Выбрать город</p>
         <ul class="location__select-list">
-          <li class="location__select-item"><a href="http://volgograd.dst.negabarite.work.ru/">Волгоград</a></li>
-          <li class="location__select-item"><a href="http://voronezh.dst.negabarite.work.ru/">Воронеж</a></li>
-          <li class="location__select-item"><a href="http://ekaterinburg.dst.negabarite.work.ru/">Екатеринбург</a></li>
-          <li class="location__select-item"><a href="http://kazan.dst.negabarite.work.ru/">Казань</a></li>
-          <li class="location__select-item"><a href="http://krasnodar.dst.negabarite.work.ru/">Краснодар</a></li>
+          <li class="location__select-item"><a href="http://volgograd.negabarite.work.ru/">Волгоград</a></li>
+          <li class="location__select-item"><a href="http://voronezh.negabarite.work.ru/">Воронеж</a></li>
+          <li class="location__select-item"><a href="http://ekaterinburg.negabarite.work.ru/">Екатеринбург</a></li>
+          <li class="location__select-item"><a href="http://kazan.negabarite.work.ru/">Казань</a></li>
+          <li class="location__select-item"><a href="http://krasnodar.negabarite.work.ru/">Краснодар</a></li>
 
-          <li class="location__select-item"><a href="http://krasnojarsk.dst.negabarite.work.ru/">Красноярск</a></li>
-          <li class="location__select-item"><a href="http://moscow.dst.negabarite.work.ru/">Москва</a></li>
-          <li class="location__select-item"><a href="http://novosibirsk.dst.negabarite.work.ru/">Новосибирск</a></li>
-          <li class="location__select-item"><a href="http://novgorod.dst.negabarite.work.ru/">Новгород</a></li>
-          <li class="location__select-item"><a href="http://omsk.dst.negabarite.work.ru/">Омск</a></li>
-          <li class="location__select-item"><a href="http://perm.dst.negabarite.work.ru/">Пермь</a></li>
-          <li class="location__select-item"><a href="http://rostov-na-donu.dst.negabarite.work.ru/">Ростов-на-Дону</a></li>
-          <li class="location__select-item"><a href="http://sankt-peterburg.dst.negabarite.work.ru/">Санкт-Петербург</a></li>
-          <li class="location__select-item"><a href="http://ufa.dst.negabarite.work.ru/">Уфа</a></li>
-          <li class="location__select-item"><a href="http://cheljabinsk.dst.negabarite.work.ru/">Челябинск</a></li>
+          <li class="location__select-item"><a href="http://krasnoyarsk.negabarite.work.ru/">Красноярск</a></li>
+          <li class="location__select-item"><a href="http://moscow.negabarite.work.ru/">Москва</a></li>
+          <li class="location__select-item"><a href="http://novosibirsk.negabarite.work.ru/">Новосибирск</a></li>
+          <li class="location__select-item"><a href="http://novgorod.negabarite.work.ru/">Новгород</a></li>
+          <li class="location__select-item"><a href="http://omsk.negabarite.work.ru/">Омск</a></li>
+          <li class="location__select-item"><a href="http://perm.negabarite.work.ru/">Пермь</a></li>
+          <li class="location__select-item"><a href="http://rostovnadonu.negabarite.work.ru/">Ростов-на-Дону</a></li>
+          <li class="location__select-item"><a href="http://saintpetersburg.negabarite.work.ru/">Санкт-Петербург</a></li>
+          <li class="location__select-item"><a href="http://ufa.negabarite.work.ru/">Уфа</a></li>
+          <li class="location__select-item"><a href="http://chelyabinsk.negabarite.work.ru/">Челябинск</a></li>
         </ul>
       </div>
     </div>
@@ -101,7 +108,14 @@ html { margin-top: 0 !important; margin-bottom: 0 !important; }
   </div>
 
 
-
+<?php 
+    global $gorod;
+    if (get_sub()!='negabarite'){
+        $gorod = '-'.get_sub();
+    }else{
+        $gorod = '';
+    }
+?>
 
 
   <nav class="main-menu">
@@ -111,14 +125,14 @@ html { margin-top: 0 !important; margin-bottom: 0 !important; }
         <li class="main-menu__item"><a href="/#catalog" class="main-menu__link">Каталог спецтехники</a>
           <span class="main-menu__marker"></span>
           <ul class="submenu">
-            <li class="submenu__item"><a href="/arenda-buldozerov/" class="submenu__link">Бульдозеры</a></li>
-            <li class="submenu__item"><a href="/arenda-excavatorov/" class="submenu__link">Экскаваторы</a></li>
-            <li class="submenu__item"><a href="/arenda-pogruzchikov/" class="submenu__link">Погрузчики</a></li>
-            <li class="submenu__item"><a href="/arenda-samosvalov/" class="submenu__link">Самосвалы</a></li>
-            <li class="submenu__item"><a href="/arenda-avtokranov/" class="submenu__link">Автокраны</a></li>
-            <li class="submenu__item"><a href="/arenda-dorozhnyh-katkov/" class="submenu__link">Катки дорожные</a></li>
-            <li class="submenu__item"><a href="/arenda-asfaltoukladchikov/" class="submenu__link">Асфальтоукладчики</a></li>
-            <li class="submenu__item"><a href="/arenda-burovoj-ustanovki/" class="submenu__link">Буровые установки</a></li>
+            <li class="submenu__item"><a href="/arenda-buldozerov<?= $gorod ?>/" class="submenu__link">Бульдозеры</a></li>
+            <li class="submenu__item"><a href="/arenda-ekskavatorov<?= $gorod ?>/" class="submenu__link">Экскаваторы</a></li>
+            <li class="submenu__item"><a href="/arenda-pogruzchikov<?= $gorod ?>/" class="submenu__link">Погрузчики</a></li>
+            <li class="submenu__item"><a href="/arenda-samosvalov<?= $gorod ?>/" class="submenu__link">Самосвалы</a></li>
+            <li class="submenu__item"><a href="/arenda-avtokranov<?= $gorod ?>/" class="submenu__link">Автокраны</a></li>
+            <li class="submenu__item"><a href="/arenda-dorozhnyh-katkov<?= $gorod ?>/" class="submenu__link">Катки дорожные</a></li>
+            <li class="submenu__item"><a href="/arenda-asfaltoukladchikov<?= $gorod ?>/" class="submenu__link">Асфальтоукладчики</a></li>
+            <li class="submenu__item"><a href="/arenda-burovoj-ustanovki<?= $gorod ?>/" class="submenu__link">Буровые установки</a></li>
           </ul>
         </li>
         <li class="main-menu__item"><a href="#" class="main-menu__link">Услуги</a>
