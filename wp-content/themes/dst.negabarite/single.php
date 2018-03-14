@@ -25,11 +25,6 @@
 		$rent_info_description = get_post_meta( get_the_id(), 'tech_info_comment', true); 
 		$rent_info_add_eqiup = get_post_meta( get_the_id(), 'tech_info_add_equip', true);
 
-
-		$post_id = get_the_id();
-
-
-
 		?>
 
 		<div class="catalog__title-wrapper">
@@ -50,8 +45,6 @@
 
 <section class="good-info">
 	<div class="container good-info__inner">
-
-
 
 		<div class="good-info__block">
 			<div class="gallery">

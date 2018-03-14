@@ -198,44 +198,6 @@ jQuery(document).ready(function() {
 
 
 
-  // jQuery('.upload_image_button').click(function(){
-  //   function handlerRequest(image_type, image_url, user_id){
-  //     $.ajax({
-  //       url: '/wp-content/themes/theme/include/profile/forms-handler.php',
-  //       type: 'POST',
-  //       data: {
-  //         image_type: image_type, 
-  //         image_url: image_url, 
-  //         user_id: user_id
-  //       },
-  //       success: function(data, textStatus, xhr) {
-  //           //called if success
-  //         },
-  //         error: function(xhr, textStatus, errorThrown) {
-  //           //called when there is an error
-  //         }
-  //       });
-  //   }
-  //   var send_attachment_bkp = wp.media.editor.send.attachment;
-  //   var button = jQuery(this);
-  //   var user_id = jQuery(button).siblings('#user_id').val();
-  //   wp.media.editor.send.attachment = function(props, attachment) {
-  //     console.log(attachment);
-  //     jQuery(button).siblings('#upload_photo-path').val(attachment.url);
-  //     wp.media.editor.send.attachment = send_attachment_bkp;
-  //     // handlerRequest('upload_photo', attachment.url, user_id);
-      
-  //   }
-    
-  //   wp.media.editor.open(button);
-  //   return false;
-  // });
-
-
-
-
-
-
 
 
 

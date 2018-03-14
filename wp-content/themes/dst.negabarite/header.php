@@ -134,8 +134,8 @@ html { margin-top: 0 !important; margin-bottom: 0 !important; }
         <li class="main-menu__item"><a href="/catalog/sale/" class="main-menu__link">Продажа</a>
           <span class="main-menu__marker"></span>
           <ul class="submenu submenu--wide">
-            <li class="submenu__item"><a href="/catalog/sale/" class="submenu__link">Продажа дорожно-строительной техники</a></li>
-            <li class="submenu__item"><a href="/catalog/sale/sale_diesel/" class="submenu__link">Продажа дизельного топлива</a></li>
+            <li class="submenu__item"><a href="/katalog-tehniki/" class="submenu__link">Продажа дорожно-строительной техники</a></li>
+            <li class="submenu__item"><a href="/katalog-tehniki/" class="submenu__link">Продажа дизельного топлива</a></li>
           </ul>
         </li>
         <li class="main-menu__item"><a href="/contacts/" class="main-menu__link">Контакты</a></li>

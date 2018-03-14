@@ -199,7 +199,7 @@ function add_cities_page() {
 /* создаем функцию с произвольным именем и вставляем 
 в неё register_taxonomy() */	
 register_taxonomy('cities',
-	array('page'),
+	array('post'),
 	array(
 		'hierarchical' => false,
 			/* true - по типу рубрик, false - по типу меток, 
@@ -396,6 +396,8 @@ function send_form() {
 
 	/* Присваиваем посту категорию */
 	wp_set_object_terms( $post, $category_id, 'category' );
+	/* Присваиваем посту тэг с городом */
+	wp_set_object_terms( $post, $location, 'cities' );
 
 	if ( $_FILES ) {
 		$files = $_FILES["photo"];
@@ -415,47 +417,7 @@ function send_form() {
 			} 
 		} 
 	}
-<<<<<<< HEAD
 	wp_redirect($url); 
-=======
-
-
-
-	echo '<pre>';
-	print_r($post_data);
-	echo '</pre>';
-	echo '<br>';
-	echo '<br>';
-	echo '<br>';
-	echo '<br>';
-	print_r($newupload);
-	print_r($file);
-	print_r($_FILES);
-	print_r();
-
-// wp_redirect('/'); // Перенаправление после успешной отправки из формы на статическую системную страницу
->>>>>>> 2578c1bea50f40548a2771b29211480d1d6417cf
-
-
-
-
-
-
-
-
-	echo '<pre>';
-	print_r($post_data);
-	echo '</pre>';
-	echo '<br>';
-	echo '<br>';
-	echo '<br>';
-	echo '<br>';
-	print_r($newupload);
-	print_r($file);
-	print_r($_FILES);
-	print_r();
-
-// wp_redirect('/'); // Перенаправление после успешной отправки из формы на статическую системную страницу
 
 	/* Завершаем выполнение ajax */
 	die();
@@ -463,75 +425,3 @@ function send_form() {
 
 add_action("wp_ajax_send_form", "send_form");
 add_action("wp_ajax_nopriv_send_form", "send_form");
-
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-// function ajax_avatar() {
-// 	require_once( ABSPATH . 'wp-admin/includes/image.php' );
-// 	require_once( ABSPATH . 'wp-admin/includes/file.php' );
-// 	require_once( ABSPATH . 'wp-admin/includes/media.php' );
-// 	$attach_id = media_handle_upload('image_upload', $post );
-// 	if ( is_wp_error( $attach_id ) ) {
-// 		echo json_encode(array('uploaded'=>false));
-// 	} else {
-// 		echo json_encode(array('uploaded'=>true));
-// 	}
-// 	die();
-// };
-=======
-=======
->>>>>>> f7db82e2d8f58d994fe857a7190748c30c490ca0
-function my_handle_attachment($file_handler, $post)
-{
-	if ($_FILES[$file_handler]['error'] !== UPLOAD_ERR_OK) __return_false();
-	require_once(ABSPATH . "wp-admin" . '/includes/image.php');
-	require_once(ABSPATH . "wp-admin" . '/includes/file.php');
-	require_once(ABSPATH . "wp-admin" . '/includes/media.php');
-
-	$attach_id = media_handle_upload( $file_handler, $post );
-	if (is_numeric($attach_id )) 
-	{
-		update_post_meta( $post, '_product_image_gallery', $attach_id );
-		array_push($post, '_product_image_gallery', $attach_id);
-	}
-	return $attach_id;  
-<<<<<<< HEAD
-} 
-
-/*
-/* Функция получения названия города по поддомену
-*/
-
-function get_cityname($sub) {
-	$subs = array(
-		'novosibirsk' => 'Новосибирск', 
-		'ufa' => 'Уфа',
-		'ekaterinburg' => 'Екатеринбург', 
-		'krasnoyarsk' => 'Красноярск',
-		'novgorod' => 'Новгород',
-		'perm' => 'Пермь',
-		'kazan' => 'Казань',
-		'voronezh' => 'Воронеж',
-		'chelyabinsk' => 'Челябинск',
-		'volgograd' => 'Волгоград',
-		'omsk' => 'Омск',
-        'rostovnadonu' => 'Ростов-на-Дону',
-        'moscow' => 'Москва',
-        'saintpetersburg' => 'Санкт-Петербург',
-        'krasnodar' => 'Краснодар'
-	);
-    return $subs[$sub];   
-}
-
-/*
-/* Функция получения субдомена
-*/
-function get_sub() {
-    $sub = explode('.',$_SERVER['SERVER_NAME']); //разбиваем юрл для определения субдомена 
-    return $sub[0];
-}
->>>>>>> 2578c1bea50f40548a2771b29211480d1d6417cf
-=======
-} 
->>>>>>> f7db82e2d8f58d994fe857a7190748c30c490ca0

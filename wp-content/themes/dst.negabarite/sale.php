@@ -59,6 +59,11 @@
         </div>
       </div>
     </div>
+
+
+
+
+
   </div>
   <div class="container catalog__inner">
     <div class="catalog-filter">
@@ -78,14 +83,48 @@
 
     <div id="itemContainer" class="catalog__card-wrapper catalog__card-wrapper--narrow">
 
+      <?php
 
-      <a href="/catalog/sale/sale_buldozer/komatsu_d65ex_16/" class="catalog-card">
-        <img src="/img/komatsu_d65ex_16.png" alt="" class="catalog-card__img">
-        <p class="catalog-card__type">Бульдозер</p>
-        <p class="catalog-card__text catalog-card__text--normal">KOMATSU D65EX-16</p>
-        <p class="catalog-card__price">4 250 340</p>
-      </a>
-      
+      if( isset( $_POST['tech_type'] ) ) { $tech_type = $_POST['tech_type']; }
+      $args = array(
+      // 'posts_per_page' => 5,
+        'category_name' => $tech_type,
+        'post_type' => 'catalog_technics',
+      );
+      $posts = new WP_Query( $args );
+      while( $posts->have_posts() ) :
+
+        $posts->the_post();
+        $rent_info_brand = get_post_meta( get_the_id(), 'tech_info_brand', true); 
+        $rent_info_model = get_post_meta( get_the_id(), 'tech_info_model', true); 
+        $args = array( 'post_type' => 'attachment', 'posts_per_page' => -1, 'post_status' => null, 'post_parent' => $post->ID );
+        $attachments = get_posts($args);
+        $attach_array = [];
+        foreach ( $attachments as $attachment ) {
+          $attachment_id = $attachment->ID;
+          $image_attributes = wp_get_attachment_image_src( $attachment_id, full );
+          $attach_array[] = $image_attributes;
+        }
+        ?>
+
+        <a href="<?php the_permalink(); ?>" class="catalog-card">
+          <div class="catalog-card__img-wrapper">
+            <img src="<?php echo $image_attributes[0]; ?>" alt="" class="catalog-card__img">
+          </div>
+          <p class="catalog-card__type">Бульдозер</p>
+          <p class="catalog-card__text catalog-card__text--normal">KOMATSU D65EX-16</p>
+          <p class="catalog-card__price">4 250 340</p>
+        </a>
+        <?php
+      endwhile;
+      wp_reset_postdata();
+      ?>
+
+
+
+
+
+
 
     </div>
     <div class="holder pagination">
@@ -93,6 +132,8 @@
   </div>
 
 </section>
+
+
 
 <?php include ('/modules/consult.php'); ?>
 
