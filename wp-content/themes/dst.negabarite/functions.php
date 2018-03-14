@@ -436,6 +436,27 @@ function send_form() {
 // wp_redirect('/'); // Перенаправление после успешной отправки из формы на статическую системную страницу
 >>>>>>> 2578c1bea50f40548a2771b29211480d1d6417cf
 
+
+
+
+
+
+
+
+	echo '<pre>';
+	print_r($post_data);
+	echo '</pre>';
+	echo '<br>';
+	echo '<br>';
+	echo '<br>';
+	echo '<br>';
+	print_r($newupload);
+	print_r($file);
+	print_r($_FILES);
+	print_r();
+
+// wp_redirect('/'); // Перенаправление после успешной отправки из формы на статическую системную страницу
+
 	/* Завершаем выполнение ajax */
 	die();
 }
@@ -444,6 +465,7 @@ add_action("wp_ajax_send_form", "send_form");
 add_action("wp_ajax_nopriv_send_form", "send_form");
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 // function ajax_avatar() {
 // 	require_once( ABSPATH . 'wp-admin/includes/image.php' );
@@ -458,6 +480,8 @@ add_action("wp_ajax_nopriv_send_form", "send_form");
 // 	die();
 // };
 =======
+=======
+>>>>>>> f7db82e2d8f58d994fe857a7190748c30c490ca0
 function my_handle_attachment($file_handler, $post)
 {
 	if ($_FILES[$file_handler]['error'] !== UPLOAD_ERR_OK) __return_false();
@@ -472,6 +496,7 @@ function my_handle_attachment($file_handler, $post)
 		array_push($post, '_product_image_gallery', $attach_id);
 	}
 	return $attach_id;  
+<<<<<<< HEAD
 } 
 
 /*
@@ -507,3 +532,6 @@ function get_sub() {
     return $sub[0];
 }
 >>>>>>> 2578c1bea50f40548a2771b29211480d1d6417cf
+=======
+} 
+>>>>>>> f7db82e2d8f58d994fe857a7190748c30c490ca0
