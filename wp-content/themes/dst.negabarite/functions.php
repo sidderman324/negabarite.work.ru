@@ -317,11 +317,6 @@ function send_form() {
 
 
 
-
-
-
-
-
 	echo '<pre>';
 	print_r($post_data);
 	echo '</pre>';
@@ -360,3 +355,36 @@ function my_handle_attachment($file_handler, $post)
 	}
 	return $attach_id;  
 } 
+
+/*
+/* Функция получения названия города по поддомену
+*/
+$subs = array(
+		'novosibirsk' => 'Новосибирск', 
+		'ufa' => 'Уфа',
+		'ekaterinburg' => 'Екатеринбург', 
+		'krasnoyarsk' => 'Красноярск',
+		'novgorod' => 'Новгород',
+		'perm' => 'Пермь',
+		'kazan' => 'Казань',
+		'voronezh' => 'Воронеж',
+		'chelyabinsk' => 'Челябинск',
+		'volgograd' => 'Волгоград',
+		'omsk' => 'Омск',
+        'rostovnadonu' => 'Ростов-на-Дону',
+        'moscow' => 'Москва',
+        'saintpetersburg' => 'Санкт-Петербург',
+        'krasnodar' => 'Краснодар'
+	);
+
+function get_cityname($sub) {
+    return $subs[$sub];
+}
+
+/*
+/* Функция получения субдомена
+*/
+function get_sub() {
+    $sub = explode('.',$_SERVER['SERVER_NAME']); //разбиваем юрл для определения субдомена 
+    return $sub[0];
+}
