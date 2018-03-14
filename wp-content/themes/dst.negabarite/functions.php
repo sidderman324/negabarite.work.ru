@@ -140,7 +140,13 @@ $meta_page = array(
 			'id'	=> 'h1',
 			'label' => 'Заголовок H1',
 			'type'	=> 'text',
-			'placeholder' 	=> 'Введите заголовок H1 '
+			'placeholder' 	=> 'Введите заголовок H1'
+		),
+		array(
+			'id'	=> 'rent_sale',
+			'label' => 'Аренда / Продажа',
+			'type'	=> 'text',
+			'placeholder' 	=> 'Не заполнять'
 		),
 		array(
 			'id'	=> 'type',
@@ -157,6 +163,30 @@ $meta_page = array(
 				'Буровые установки' => 'burovaya_ustanovka',
 			),
 			'default' => ''
+		),
+		array(
+			'id'	=> 'city',
+			'label' => 'Город',
+			'type'	=> 'select',
+			'args'  => array(
+				'По всей России' => 'all',
+				'Волгоград' => 'volgograd',
+				'Воронеж' => 'voronezh',
+				'Екатеринбург' => 'ekaterinburg',
+				'Казань' => 'kazan',
+				'Краснодар' => 'krasnodar',
+				'Красноярск' => 'krasnojarsk',
+				'Москва' => 'moscow',
+				'Новосибирск' => 'novosibirsk',
+				'Новгород' => 'novgorod',
+				'Омск' => 'omsk',
+				'Пермь' => 'perm',
+				'Ростов-на-Дону' => 'rostov-na-donu',
+				'Санкт-Петербург' => 'sankt-peterburg',
+				'Уфа' => 'ufa',
+				'Челябинск' => 'cheljabinsk',
+			),
+			'default' => 'all'
 		),
 	)
 );
@@ -238,7 +268,66 @@ $author_about = array(
 			'label' => 'Стоимость',
 			'type'	=> 'text',
 			'placeholder' 	=> 'Введите стоимость'
-		) 
+		),
+		array(
+			'id'	=> 'rent_sale',
+			'type'	=> 'hidden',
+		),
+		array(
+			'id'	=> 'working_time',
+			'label' => 'Наработка',
+			'type'	=> 'text',
+			'placeholder' 	=> 'Введите наработку'
+		),
+		array(
+			'id'	=> 'location',
+			'label' => 'Местонахождение',
+			'type'	=> 'text',
+			'placeholder' 	=> 'Введите местонахождения'
+		),
+		array(
+			'id'	=> 'brand',
+			'label' => 'Марка',
+			'type'	=> 'text',
+			'placeholder' 	=> 'Введите производителя техники'
+		),
+		array(
+			'id'	=> 'model',
+			'label' => 'Модель',
+			'type'	=> 'text',
+			'placeholder' 	=> 'Введите модель'
+		),
+		array(
+			'id'	=> 'phone',
+			'label' => 'Телефон',
+			'type'	=> 'text',
+			'placeholder' 	=> 'Введите телефон продавца'
+		),
+		array(
+			'id'	=> 'year',
+			'label' => 'Год выпуска',
+			'type'	=> 'text',
+			'placeholder' 	=> 'Введите год выпуска'
+		),
+		array(
+			'id'	=> 'comment',
+			'label' => 'Комментарий продавца',
+			'type'	=> 'textarea',
+			'placeholder' 	=> 'Введите подробное описание техники'
+		),
+		array(
+			'id'	=> 'add_equip',
+			'label' => 'Дополнительно оборудование',
+			'type'	=> 'textarea',
+			'placeholder' 	=> 'Введите список дополнительного оборудования'
+		),
+		array(
+			'id'	=> 'photo_list',
+			'label' => 'Дополнительно оборудование',
+			'type'	=> 'hidden',
+			'placeholder' 	=> 'Введите список дополнительного оборудования'
+		),
+
 	)
 
 );
@@ -246,6 +335,18 @@ $author_about = array(
 new trueMetaBox( $author_about );
 
 
+function kv_handle_attachment($file_handler,$post_id,$set_thu=false) {
+	// check to make sure its a successful upload
+	if ($_FILES[$file_handler]['error'] !== UPLOAD_ERR_OK) __return_false();
+
+	require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+	require_once(ABSPATH . "wp-admin" . '/includes/file.php');
+	require_once(ABSPATH . "wp-admin" . '/includes/media.php');
+
+	$attach_id = media_handle_upload( $file_handler, $post_id );
+
+	return $attach_id;
+}
 
 
 function send_form() {
@@ -266,8 +367,7 @@ function send_form() {
 	$phone = $_POST['phone'];
 	$comment = $_POST['comment'];
 	$add_equip = $_POST['add_equip'];
-	$imgs = $_POST['my_image_upload'];
-
+	$rent_sale = $_POST['rent_sale'];
 
 	$post_data = array(
 		'post_title'    => $brand .' '. $model,
@@ -276,44 +376,51 @@ function send_form() {
 		'post_type' => 'catalog_technics',
 		'meta_input'    => array( 
 			'category_id' => $category_id,
-			'price' => $price,
-			'working_time' => $working_time,
-			'location' => $location,
-			'brand' => $brand,
-			'phone' => $phone,
-			'comment' => $comment,
-			'add_equip' => $add_equip,
-			'imgs' => $imgs,
+			'tech_info_price' => $price,
+			'tech_info_working_time' => $working_time,
+			'tech_info_location' => $location,
+			'tech_info_brand' => $brand,
+			'tech_info_phone' => $phone,
+			'tech_info_comment' => $comment,
+			'tech_info_add_equip' => $add_equip,
+			'tech_info_model' => $model,
+			'tech_info_year' => $year,
+			'tech_info_rent_sale' => $rent_sale,
 		),
 	);
 
-
-
 	/* Добавляем пост */
 	$post = wp_insert_post( $post_data );
+
+	$url = get_permalink($post, false);
+
 	/* Присваиваем посту категорию */
 	wp_set_object_terms( $post, $category_id, 'category' );
 
-
-
 	if ( $_FILES ) {
-		$files = $_FILES['upload_attachment'];
+		$files = $_FILES["photo"];
 		foreach ($files['name'] as $key => $value) {
 			if ($files['name'][$key]) {
 				$file = array(
-					'name'     => $files['name'][$key],
-					'type'     => $files['type'][$key],
-					'tmp_name' => $files['tmp_name'][$key],
-					'error'    => $files['error'][$key],
-					'size'     => $files['size'][$key]
+					'name' => $files['name'][$key],
+					'type' => $files['type'][$key], 
+					'tmp_name' => $files['tmp_name'][$key], 
+					'error' => $files['error'][$key],
+					'size' => $files['size'][$key]
 				);
-				$_FILES = array("upload_attachment" => $file);
+				$_FILES = array ("photo" => $file); 
 				foreach ($_FILES as $file => $array) {
-					$newupload = my_handle_attachment($file,$post);
+					$newupload = kv_handle_attachment($file,$post); 
 				}
-			}
-		}
+			} 
+		} 
 	}
+	wp_redirect($url); 
+
+
+
+
+
 
 
 
@@ -333,7 +440,6 @@ function send_form() {
 
 	/* Завершаем выполнение ajax */
 	die();
-
 }
 
 add_action("wp_ajax_send_form", "send_form");
@@ -355,36 +461,3 @@ function my_handle_attachment($file_handler, $post)
 	}
 	return $attach_id;  
 } 
-
-/*
-/* Функция получения названия города по поддомену
-*/
-
-function get_cityname($sub) {
-	$subs = array(
-		'novosibirsk' => 'Новосибирск', 
-		'ufa' => 'Уфа',
-		'ekaterinburg' => 'Екатеринбург', 
-		'krasnoyarsk' => 'Красноярск',
-		'novgorod' => 'Новгород',
-		'perm' => 'Пермь',
-		'kazan' => 'Казань',
-		'voronezh' => 'Воронеж',
-		'chelyabinsk' => 'Челябинск',
-		'volgograd' => 'Волгоград',
-		'omsk' => 'Омск',
-        'rostovnadonu' => 'Ростов-на-Дону',
-        'moscow' => 'Москва',
-        'saintpetersburg' => 'Санкт-Петербург',
-        'krasnodar' => 'Краснодар'
-	);
-    return $subs[$sub];   
-}
-
-/*
-/* Функция получения субдомена
-*/
-function get_sub() {
-    $sub = explode('.',$_SERVER['SERVER_NAME']); //разбиваем юрл для определения субдомена 
-    return $sub[0];
-}

@@ -29,7 +29,7 @@
     <div class="breadcrumbs">
       <div class="container breadcrumbs__inner">
         <a href="/" class="breadcrumbs__link">Главная</a>
-        <span class="breadcrumbs__current">Бульдозеры</span>
+        <span class="breadcrumbs__current"><?php echo $title; ?></span>
       </div>
     </div>
 
@@ -47,8 +47,6 @@
 
 
       <?php
-
-
       $args = array(
       // 'posts_per_page' => 5,
         'category_name' => $tech_type,
@@ -58,14 +56,23 @@
       while( $posts->have_posts() ) :
 
         $posts->the_post();
-        $rent_info_brand = get_post_meta( get_the_id(), 'rent_info_brand', true); 
-        $rent_info_model = get_post_meta( get_the_id(), 'rent_info_model', true); 
-
+        $rent_info_brand = get_post_meta( get_the_id(), 'tech_info_brand', true); 
+        $rent_info_model = get_post_meta( get_the_id(), 'tech_info_model', true); 
+        $args = array( 'post_type' => 'attachment', 'posts_per_page' => -1, 'post_status' => null, 'post_parent' => $post->ID );
+        $attachments = get_posts($args);
+        $attach_array = [];
+        foreach ( $attachments as $attachment ) {
+          $attachment_id = $attachment->ID;
+          $image_attributes = wp_get_attachment_image_src( $attachment_id, full );
+          $attach_array[] = $image_attributes;
+        }
         ?>
 
 
         <a href="<?php the_permalink(); ?>" class="catalog-card">
-          <img src="<?php the_post_thumbnail_url(); ?>" alt="" class="catalog-card__img">
+          <div class="catalog-card__img-wrapper">
+            <img src="<?php echo $image_attributes[0]; ?>" alt="" class="catalog-card__img">
+          </div>
           <p class="catalog-card__text">Аренда<br><?php echo $rent_info_brand; ?> <?php echo $rent_info_model; ?></p>
         </a>
         <?php

@@ -15,8 +15,7 @@
   is_page(); {
     $meta_title = get_post_meta( get_the_id(), 'meta_page_title', true);
     $meta_description = get_post_meta( get_the_id(), 'meta_page_description', true);
-  } 
-
+  }
   ?>
 
   <title><?php echo $meta_title; ?></title>
@@ -31,7 +30,7 @@ html { margin-top: 0 !important; margin-bottom: 0 !important; }
   <div class="container page-header__inner">
 
     <!-- Вставка логотипа -->
-    <a href="http://dst.negabarite.work.ru/" class="logo">
+    <a href="/" class="logo">
       <p class="logo__title">Негабарит</p>
       <p class="logo__title">Онлайн</p>
     </a>

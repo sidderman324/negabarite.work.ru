@@ -1285,6 +1285,7 @@ body {
   text-decoration: none;
   padding-bottom: 10px;
   text-align: center;
+  position: relative;
 }
 .catalog-card:hover {
   box-shadow: 0 0 20px 0 #cccccc;
@@ -1299,6 +1300,32 @@ body {
 .catalog-card__img {
   width: 100%;
   height: auto;
+}
+.catalog-card__img-wrapper .catalog-card__img {
+  height: auto;
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+.catalog-card__img:hover {
+  width: 105%;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+.catalog-card__img-wrapper {
+  width: 100%;
+  height: 160px;
+  position: relative;
+  overflow: hidden;
 }
 .catalog-card--wide {
   -ms-flex-preferred-size: 100%;
@@ -2312,6 +2339,7 @@ body {
   font-size: 16px;
   outline: none;
   padding-left: 10px;
+  height: 40px;
 }
 .form__input--big {
   width: 532px;
@@ -2357,6 +2385,59 @@ body {
   border: 2px solid #323232;
   transition: 0.3s;
 }
+
+
+
+.file-upload {
+ position: relative; /* Даем возможность делать позиционирование, внутри данного элемента */
+ overflow: hidden; /* Все что выходит за пределы - скрываем */
+ width: 200px;
+ height: 40px;
+ border: 2px solid #323232;
+ background-color: #323232;
+ border-radius: 3px;
+ padding: 8px 4px;
+ color: #fff;
+ text-align: center;
+ transition: 0.3s;
+ margin-left: 150px;
+}
+.file-upload:hover {
+  color: #323232;
+  background-color: transparent;
+  border: 2px solid #323232;
+  transition: 0.3s;
+}
+.file-upload input[type="file"]{
+  display: none; /* Обязательно скрываем настоящий Input File */
+}
+.file-upload label {
+ /* Растягиваем label на всю возможную площадь блока .file-upload */
+ display: block;
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ cursor: pointer;
+}
+.file-upload span {
+ line-height: 36px; /* Делаем вертикальное выравнивание текста, который написан на кнопке */
+ font-size: 1.8em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (min-width: 320px) {
   .container {
     width: 320px;

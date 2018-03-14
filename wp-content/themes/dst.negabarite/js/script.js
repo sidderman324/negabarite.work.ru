@@ -44,11 +44,6 @@ jQuery(document).ready(function() {
     });
   });
 
-
-  jQuery(function($){
-    $("#phone").mask("+7 (999) 999-9999");
-  });
-
   function menuHideShow() {
     var windowsWidth = jQuery(window).width();
     if (windowsWidth > 768) {
@@ -142,8 +137,7 @@ jQuery(document).ready(function() {
 
 
   jQuery(function($){
-    $("#rent_info_phone_93").mask("+7 (999) 999-9999");
-    $("#rent_info_phone_327").mask("+7 (999) 999-9999");
+    jQuery("#phone").mask("+7 (999) 999-9999");
   });
 
   
@@ -175,82 +169,67 @@ jQuery(document).ready(function() {
     var brand_for_cat_20 = ['Caterpillar','Bomag','Mitsubishi','HAMM','Vogele','Titan'];
 
     // Проверка выбранной категории
-    var category = jQuery('.wpuf_category_93 option:selected').val();
-    // console.log('Категория: ' + category);
-
-    // Скрытие-закрытие бренда и модели в зависимости от выбранной категории
-    if (category == '-1') {
-      jQuery('.wpuf_rent_info_brand_93').prop('disabled',true);
-    } else {
-      jQuery('.wpuf_rent_info_brand_93').prop('disabled',false);
-      jQuery('.wpuf_rent_info_brand_93').html('');
-    }
+    var category = jQuery('#category').val();
+    console.log('Категория: ' + category);
+    jQuery('#brand').empty();
     var current_brand = [];
     // Выбор массива с брендами
     switch(category){
-      case "1": current_brand = brand_for_cat_1; break; 
-      case "21": current_brand = brand_for_cat_21; break; 
-      case "19": current_brand = brand_for_cat_19; break; // 
-      case "16": current_brand = brand_for_cat_16; break; // Погрузчики
-      case "17": current_brand = brand_for_cat_17; break; 
-      case "15": current_brand = brand_for_cat_15; break;
-      case "18": current_brand = brand_for_cat_18; break; 
-      case "20": current_brand = brand_for_cat_20; break; // Асфальтоукладчики
+      case "buldozer": current_brand = brand_for_cat_1; break; 
+      case "burovaya_ustanovka": current_brand = brand_for_cat_21; break; 
+      case "road_ratok": current_brand = brand_for_cat_19; break; // 
+      case "pogruzchik": current_brand = brand_for_cat_16; break; // Погрузчики
+      case "samosval": current_brand = brand_for_cat_17; break; 
+      case "excavator": current_brand = brand_for_cat_15; break;
+      case "autokran": current_brand = brand_for_cat_18; break; 
+      case "asphaltoukladchik": current_brand = brand_for_cat_20; break; // Асфальтоукладчики
       default: current_brand = brand_for_cat_1;
     }
-
     for (var i = 0; i < current_brand.length; i++) {
-      var option_item = "<option value="+[i]+">"+current_brand[i]+"</option>";
-      // console.log(option_item);
-      jQuery('.wpuf_rent_info_brand_93').html(function(indx, oldHtml){
+      var option_item = "<option class='brand_item' value="+current_brand[i]+">"+current_brand[i]+"</option>";
+      jQuery('#brand').html(function(indx, oldHtml){
         return oldHtml + option_item;
       });
     }
-
-
-
-
-
   }
 
   jQuery(document).ready(form_logic);
-  jQuery('.wpuf-form-add').click(form_logic);
+  jQuery('#category').click(form_logic);
 
 
 
-
-  $('.upload_image_button').click(function(){
-    function handlerRequest(image_type, image_url, user_id){
-      $.ajax({
-        url: '/wp-content/themes/theme/include/profile/forms-handler.php',
-        type: 'POST',
-        data: {
-          image_type: image_type, 
-          image_url: image_url, 
-          user_id: user_id
-        },
-        success: function(data, textStatus, xhr) {
-            //called if success
-          },
-          error: function(xhr, textStatus, errorThrown) {
-            //called when there is an error
-          }
-        });
-    }
-    var send_attachment_bkp = wp.media.editor.send.attachment;
-    var button = $(this);
-    var user_id = $(button).siblings('#user_id').val();
-    wp.media.editor.send.attachment = function(props, attachment) {
-      console.log(attachment);
-      $(button).siblings('#upload_photo-path').val(attachment.url);
-      wp.media.editor.send.attachment = send_attachment_bkp;
-      // handlerRequest('upload_photo', attachment.url, user_id);
+  // jQuery('.upload_image_button').click(function(){
+  //   function handlerRequest(image_type, image_url, user_id){
+  //     $.ajax({
+  //       url: '/wp-content/themes/theme/include/profile/forms-handler.php',
+  //       type: 'POST',
+  //       data: {
+  //         image_type: image_type, 
+  //         image_url: image_url, 
+  //         user_id: user_id
+  //       },
+  //       success: function(data, textStatus, xhr) {
+  //           //called if success
+  //         },
+  //         error: function(xhr, textStatus, errorThrown) {
+  //           //called when there is an error
+  //         }
+  //       });
+  //   }
+  //   var send_attachment_bkp = wp.media.editor.send.attachment;
+  //   var button = jQuery(this);
+  //   var user_id = jQuery(button).siblings('#user_id').val();
+  //   wp.media.editor.send.attachment = function(props, attachment) {
+  //     console.log(attachment);
+  //     jQuery(button).siblings('#upload_photo-path').val(attachment.url);
+  //     wp.media.editor.send.attachment = send_attachment_bkp;
+  //     // handlerRequest('upload_photo', attachment.url, user_id);
       
-    }
+  //   }
     
-    wp.media.editor.open(button);
-    return false;
-  });
+  //   wp.media.editor.open(button);
+  //   return false;
+  // });
 
 
 
@@ -261,7 +240,7 @@ jQuery(document).ready(function() {
 
 
 
-  var form = $('.form-send-mail'),
+  var form = jQuery('.form-send-mail'),
   action = form.attr('action'),
   pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
 
@@ -269,7 +248,7 @@ jQuery(document).ready(function() {
 
   function checkInput() {
     form.find('.req-field').each(function () {
-      var el = $(this);
+      var el = jQuery(this);
       if (el.hasClass('rf-mail')) {
         if (pattern.test(el.val())) {
           el.removeClass('empty-field');
@@ -291,11 +270,9 @@ jQuery(document).ready(function() {
     }, 1000);
   }
 
-  $(document).on('submit', '.form-send-mail', function (e) {
+  jQuery(document).on('submit', '.form-send-mail', function (e) {
     var formData = {
-      client_fio: $('#client_fio').prop('value'),
-      client_mail: $('#client_mail').prop('value'),
-      client_quest: $('#client_quest').prop('value')
+      photo: jQuery('#multiFiles').prop('value'),
     };
 
     $.ajax({
@@ -317,7 +294,7 @@ jQuery(document).ready(function() {
     e.preventDefault();
   });
 
-  $(document).on('click', '.form-send-mail button[type="submit"]', function (e) {
+  jQuery(document).on('click', '.form-send-mail button[type="submit"]', function (e) {
     checkInput();
     var errorNum = form.find('.empty-field').length;
     if (errorNum > 0) {
@@ -326,7 +303,7 @@ jQuery(document).ready(function() {
     }
   });
 
-  $(document).on('click', '.form-is-more button', function () {
+  jQuery(document).on('click', '.form-is-more button', function () {
     form.find('input').val('');
     form.find('textarea').val('');
     form.removeClass('is-sending-complete');
