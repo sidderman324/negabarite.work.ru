@@ -109,6 +109,7 @@ html { margin-top: 0 !important; margin-bottom: 0 !important; }
 
 
 <?php 
+    global $gorod;
     if (get_sub()!='negabarite'){
         $gorod = '-'.get_sub();
     }else{
@@ -125,7 +126,7 @@ html { margin-top: 0 !important; margin-bottom: 0 !important; }
           <span class="main-menu__marker"></span>
           <ul class="submenu">
             <li class="submenu__item"><a href="/arenda-buldozerov<?= $gorod ?>/" class="submenu__link">Бульдозеры</a></li>
-            <li class="submenu__item"><a href="/arenda-excavatorov<?= $gorod ?>/" class="submenu__link">Экскаваторы</a></li>
+            <li class="submenu__item"><a href="/arenda-ekskavatorov<?= $gorod ?>/" class="submenu__link">Экскаваторы</a></li>
             <li class="submenu__item"><a href="/arenda-pogruzchikov<?= $gorod ?>/" class="submenu__link">Погрузчики</a></li>
             <li class="submenu__item"><a href="/arenda-samosvalov<?= $gorod ?>/" class="submenu__link">Самосвалы</a></li>
             <li class="submenu__item"><a href="/arenda-avtokranov<?= $gorod ?>/" class="submenu__link">Автокраны</a></li>
