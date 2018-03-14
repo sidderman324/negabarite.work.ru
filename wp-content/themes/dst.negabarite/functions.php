@@ -415,9 +415,9 @@ function send_form() {
 			} 
 		} 
 	}
-<<<<<<< HEAD
+
 	wp_redirect($url); 
-=======
+
 
 
 
@@ -434,7 +434,7 @@ function send_form() {
 	print_r();
 
 // wp_redirect('/'); // Перенаправление после успешной отправки из формы на статическую системную страницу
->>>>>>> 2578c1bea50f40548a2771b29211480d1d6417cf
+
 
 
 
@@ -465,8 +465,7 @@ add_action("wp_ajax_send_form", "send_form");
 add_action("wp_ajax_nopriv_send_form", "send_form");
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 // function ajax_avatar() {
 // 	require_once( ABSPATH . 'wp-admin/includes/image.php' );
 // 	require_once( ABSPATH . 'wp-admin/includes/file.php' );
@@ -479,9 +478,7 @@ add_action("wp_ajax_nopriv_send_form", "send_form");
 // 	}
 // 	die();
 // };
-=======
-=======
->>>>>>> f7db82e2d8f58d994fe857a7190748c30c490ca0
+
 function my_handle_attachment($file_handler, $post)
 {
 	if ($_FILES[$file_handler]['error'] !== UPLOAD_ERR_OK) __return_false();
@@ -496,7 +493,6 @@ function my_handle_attachment($file_handler, $post)
 		array_push($post, '_product_image_gallery', $attach_id);
 	}
 	return $attach_id;  
-<<<<<<< HEAD
 } 
 
 
