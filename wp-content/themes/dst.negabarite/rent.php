@@ -4,7 +4,7 @@
  */
 ?>
 
-<?php get_header(); get?>
+<?php get_header(); ?>
 
 <?php include ('/modules/type.php'); ?>
 

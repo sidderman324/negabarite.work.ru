@@ -13,8 +13,8 @@
     $meta_description = $brand . $rent_info_model .' - продажа и аренда по всей стране. Арендовать спецтехнику, покупка спецтехники';
   }
   is_page(); {
-      $meta_title = get_post_meta( get_the_id(), 'meta_page_title', true);
-      $meta_description = get_post_meta( get_the_id(), 'meta_page_description', true);
+    $meta_title = get_post_meta( get_the_id(), 'meta_page_title', true);
+    $meta_description = get_post_meta( get_the_id(), 'meta_page_description', true);
   }
   ?>
 
@@ -52,21 +52,21 @@ html { margin-top: 0 !important; margin-bottom: 0 !important; }
       case 'omsk': { $city_name = "Омск";} break;
       case 'perm': { $city_name = "Пермь";} break;
       case 'rostov-na-donu': { $city_name = "Ростов-на-Дону";} break;
-        case 'sankt-peterburg': { $city_name = "Санкт-Петербург";} break;
-        case 'ufa': { $city_name = "Уфа";} break;
-        case 'cheljabinsk': { $city_name = "Челябинск";} break;
-        default: { $city_name = "По всей России";} break;
+      case 'sankt-peterburg': { $city_name = "Санкт-Петербург";} break;
+      case 'ufa': { $city_name = "Уфа";} break;
+      case 'cheljabinsk': { $city_name = "Челябинск";} break;
+      default: { $city_name = "По всей России";} break;
     }
     // echo $subdomain[0];
     ?>
 
     <?php
-      if (get_cityname(get_sub())!=''){
-          $cur_city = get_cityname(get_sub());
-      }else{
-          $cur_city = Россия;
-      }
-      ?>
+    if (get_cityname(get_sub())!=''){
+      $cur_city = get_cityname(get_sub());
+    }else{
+      $cur_city = Россия;
+    }
+    ?>
 
     <div class="location">
       <p class="location__title"><?=$cur_city?></p>
@@ -108,14 +108,14 @@ html { margin-top: 0 !important; margin-bottom: 0 !important; }
   </div>
 
 
-<?php
-    global $gorod;
-    if (get_sub()!='negabarite'){
-        $gorod = '-'.get_sub();
-    }else{
-        $gorod = '';
-    }
-?>
+  <?php
+  global $gorod;
+  if (get_sub()!='negabarite'){
+    $gorod = '-'.get_sub();
+  }else{
+    $gorod = '';
+  }
+  ?>
 
 
   <nav class="main-menu">
