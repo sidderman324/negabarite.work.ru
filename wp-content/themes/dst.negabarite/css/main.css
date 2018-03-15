@@ -695,7 +695,7 @@ body {
 .location__title:before {
   content: '';
   display: inline-block;
-  background-image: url("/img/icon_placemarker-yellow.png");
+  background-image: url("../img/icon_placemarker-yellow.png");
   position: absolute;
   top: 10px;
   transform: translateY(-50%);
