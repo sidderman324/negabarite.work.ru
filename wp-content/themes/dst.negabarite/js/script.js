@@ -270,4 +270,15 @@ jQuery(document).ready(function() {
     form.find('textarea').val('');
     form.removeClass('is-sending-complete');
   });
+
+
+  // jQuery('label').on('click', function(e){
+  //   e.preventDefault();
+  //   var name = jQuery(this).attr('for');
+  //   var sort = jQuery('#'+ name +'');
+  //   if (sort.val() == "DESC") { sort.val("ASC"); }
+  //   if (sort.val() == "ASC") { sort.val("DESC"); }
+
+  //   console.log(sort.val());
+  // })
 });

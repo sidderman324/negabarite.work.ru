@@ -705,7 +705,7 @@ body {
   background-size: contain;
 }
 .location__select {
-  background-color: #f5f5f5;
+  /*background-color: #f5f5f5;*/
   border: 0;
   color: #323232;
   font-size: 14px;
@@ -749,6 +749,7 @@ body {
 .location__select-item a:hover {
   text-decoration: underline;
 }
+
 .promo {
   height: 500px;
   position: relative;
@@ -1267,6 +1268,12 @@ body {
   -ms-flex-preferred-size: 75%;
   flex-basis: 75%;
   padding: 30px 30px;
+  position: relative;
+  margin-left: auto;
+  top: 50px;
+}
+.catalog_card_wrapper {
+  position: relative;
 }
 .catalog__card-wrapper--narrow .catalog-card {
   -ms-flex-preferred-size: 31%;
@@ -1962,7 +1969,8 @@ body {
   -ms-flex-preferred-size: 25%;
   flex-basis: 25%;
   position: relative;
-  z-index: 999;
+  z-index: 99;
+  height: fit-content;
 }
 .catalog-filter__sticker {
   transform: rotate(-90deg) translatex(50%);
@@ -1988,6 +1996,8 @@ body {
   padding-bottom: 18px;
   margin-bottom: 5px;
   position: relative;
+  margin-bottom: 30px;
+  cursor: pointer;
 }
 .catalog-filter__title:after {
   content: '';
@@ -1999,6 +2009,10 @@ body {
   bottom: 0;
   left: -15px;
 }
+.sort_separator {
+  display: block;
+  height: 30px;
+}
 .catalog-filter__list {
   margin: 0;
   padding: 0;
@@ -2006,11 +2020,22 @@ body {
 .catalog-filter__item {
   list-style-type: none;
 }
+
+
+
 .catalog-filter__link {
   text-decoration: none;
   font-size: 16px;
   line-height: 22px;
   color: #323232;
+  cursor: pointer;
+  display: block;
+}
+.catalog-filter__link--active {
+  color: #ffdc26;
+}
+.catalog-filter__link:first-of-type {
+  margin-top: 30px;
 }
 .catalog-filter__link:hover {
   text-decoration: underline;
@@ -2020,7 +2045,7 @@ body {
 }
 .sort {
   -ms-flex-preferred-size: 75%;
-  flex-basis: 75%;
+  flex-basis: 100%;
   display: -ms-flex;
   display: -ms-flexbox;
   display: flex;
@@ -2031,7 +2056,24 @@ body {
   padding: 0 40px;
   padding-top: 25px;
   height: 100%;
-  margin-left: auto;
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.catalog_card_wrapper {
+  padding-top: 30px;
+}
+
+.sort__item {
+  height: 50px;
+}
+.sort__item--horizont {
+  margin-right: auto;
+}
+.sort__item--horizont .catalog-filter__link{
+  margin-top: 0;
+  display: inline-block;
 }
 .sort__item:last-of-type {
   display: -ms-flexbox;
@@ -2059,6 +2101,23 @@ body {
   position: relative;
   right: -3px;
 }
+
+
+[type="checkbox"], [type="radio"] {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .pagination {
   padding: 0 35px 30px;
   margin-left: 25%;
@@ -3334,4 +3393,67 @@ input[type="file"] {
 }
 .flag_swiss {
   background-image: url('../img/flag_swiss.png');
+}
+
+.catalog-filter__select {
+  border: 0;
+  outline: none;
+  font-size: 16px;
+  text-align: center;
+  position: relative;
+  opacity: 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding-right: 14px;
+  /*height: fit-content;*/
+}
+.catalog-filter__select--visible {
+  opacity: 1;
+}
+.catalog-filter__select:hover {
+  text-decoration: none;
+}
+.catalog-filter__select option {
+  text-align: center;
+}
+.catalog-filter__name {
+  font-size: 16px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  cursor: pointer;
+  text-align: center;
+}
+.catalog-filter__select_wrapper:after {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 4px;
+  border-left: 3px solid #ffdc26;
+  border-bottom: 3px solid #ffdc26;
+  transform: rotate(-59deg) skew(-30deg);
+  position: absolute;
+  right: -4px;
+  top: 5px;
+}
+.catalog-filter__select_wrapper {
+  position: relative;
+  display: inline-block;
+  margin-left: 15px;
+  height: fit-content;
+}
+
+.location select {
+  padding-right: 0;
+  margin-right: 0;
+}
+
+.filter_current_city {
+  font-size: 16px;
+  display: block;
+  text-align: right;
+  padding-top: 5px;
 }

@@ -25,74 +25,110 @@
     <div class="catalog__btn-wrapper catalog__btn-wrapper--left">
       <a href="/sell_form/" class="catalog__btn catalog__btn--yellow">Продать технику</a>
     </div>
-    <div class="sort">
-      <div class="sort__item">
-        <p class="sort__text">Сортировать по:</p>
-        <p class="sort__text sort__text--separator sort__text--active">Дата размещения</p>
-        <p class="sort__text sort__text--separator">Цена</p>
-        <p class="sort__text">Год выпуска</p>
+  </div>
+  <div class="container catalog__inner catalog_card_wrapper">
+
+    <form method="get" action="" class="sort">
+      <?php
+      if( isset( $_GET['tech_type'] ) ) { $tech_type = $_GET['tech_type']; }
+      if( isset( $_GET['sort_date'] ) ) { $sort_date = $_GET['sort_date']; }
+      if( isset( $_GET['sort_price'] ) ) { $sort_price = $_GET['sort_price']; }
+      if( isset( $_GET['sort_year'] ) ) { $sort_year = $_GET['sort_year']; }
+      if( isset( $_GET['sort_city'] ) ) { $sort_city = $_GET['sort_city']; }
+      ?>
+      <div class="catalog-filter">
+        <input id="cat_all" type="radio" onclick="this.form.submit();" value="" name="tech_type">
+        <label for="cat_all" title="Все объявления" class="catalog-filter__title">Все объявления</label>
+
+        <span class="sort_separator"></span>
+        <?php
+        if( $terms = get_terms( 'category', 'orderby=name' ) ) :
+          foreach ( $terms as $term ) :
+            $term_rus = $term->name;
+            $term_tech = $term->slug;
+            
+            $class = "";
+            if ($tech_type == $term_tech) {$class = 'catalog-filter__link--active';}
+            if ($tech_type == $term_tech) {$current = 'checked';}
+            echo '<input id="' . $term_tech . '" type="radio" onclick="this.form.submit();" value="' . $term_tech . '" name="tech_type" '. $current .'>';
+            echo '<label for="' . $term_tech . '" title="' . $term_rus . '" class="catalog-filter__link '. $class .'">' . $term_rus . '</label>';
+          endforeach;
+        endif;
+        ?>
       </div>
-      <div class="sort__item">
+      <div class="sort__item sort__item--horizont">
         <p class="sort__text">Сортировать по:</p>
-        <div class="location">
-          <p class="location__title">Краснодар</p>
-          <div class="location__select">
-            <p class="location__text">Выбрать город</p>
-            <ul class="location__select-list">
-              <li class="location__select-item"><a href="#">Волгоград</a></li>
-              <li class="location__select-item"><a href="#">Воронеж</a></li>
-              <li class="location__select-item"><a href="#">Екатеринбург</a></li>
-              <li class="location__select-item"><a href="#">Казань</a></li>
-              <li class="location__select-item"><a href="#">Краснодар</a></li>
-              <li class="location__select-item"><a href="#">Красноярск</a></li>
-              <li class="location__select-item"><a href="#">Москва</a></li>
-              <li class="location__select-item"><a href="#">Новосибирск</a></li>
-              <li class="location__select-item"><a href="#">Новгород</a></li>
-              <li class="location__select-item"><a href="#">Омск</a></li>
-              <li class="location__select-item"><a href="#">Пермь</a></li>
-              <li class="location__select-item"><a href="#">Ростов-на-Дону</a></li>
-              <li class="location__select-item"><a href="#">Санкт-Петербург</a></li>
-              <li class="location__select-item"><a href="#">Уфа</a></li>
-              <li class="location__select-item"><a href="#">Челябинск</a></li>
-            </ul>
-          </div>
+
+        <div class="catalog-filter__select_wrapper">
+          <span class="catalog-filter__name">Дате</span>
+
+          <select name="sort_date" id="sort_date" onChange="this.form.submit();" class="catalog-filter__link catalog-filter__select">
+            <option value=""></option>
+            <option value="DESC" <?php if($sort_date=="DESC") echo "selected"; ?> >По возрастанию</option>
+            <option value="ASC" <?php if($sort_date=="ASC"  ) echo "selected"; ?> >По убыванию</option>
+          </select>
+        </div>
+        <div class="catalog-filter__select_wrapper">
+          <span class="catalog-filter__name">Цене</span>
+          <select name="sort_price" id="sort_price" onChange="this.form.submit();" class="catalog-filter__link catalog-filter__select">
+            <option value=""></option>
+            <option value="DESC" <?php if($sort_price=="DESC") echo "selected"; ?> >По возрастанию</option>
+            <option value="ASC" <?php if($sort_price=="ASC"  ) echo "selected"; ?> >По убыванию</option>
+          </select>
+        </div>
+        <div class="catalog-filter__select_wrapper">
+          <span class="catalog-filter__name">Году выпускa</span>
+          <select name="sort_year" id="sort_year" onChange="this.form.submit();" class="catalog-filter__link catalog-filter__select">
+            <option value=""></option>
+            <option value="DESC" <?php if($sort_year=="DESC") echo "selected"; ?> >По возрастанию</option>
+            <option value="ASC" <?php if($sort_year=="ASC"  ) echo "selected"; ?> >По убыванию</option>
+          </select>
         </div>
       </div>
-    </div>
-
-
-
-
-
-  </div>
-  <div class="container catalog__inner">
-    <div class="catalog-filter">
-      <p class="catalog-filter__title">Все объявления</p>
-      <ul class="catalog-filter__list">
-        <li class="catalog-filter__item"><a href="/catalog/sale/sale_buldozer/" class="catalog-filter__link">Бульдозеры</a></li>
-        <li class="catalog-filter__item"><a href="/catalog/sale/sale_buldozer/" class="catalog-filter__link">Экскаваторы</a></li>
-        <li class="catalog-filter__item"><a href="/catalog/sale/sale_buldozer/" class="catalog-filter__link">Погрузчики</a></li>
-        <li class="catalog-filter__item"><a href="/catalog/sale/sale_buldozer/" class="catalog-filter__link">Самосвалы</a></li>
-        <li class="catalog-filter__item"><a href="/catalog/sale/sale_buldozer/" class="catalog-filter__link">Автокраны</a></li>
-        <li class="catalog-filter__item"><a href="/catalog/sale/sale_buldozer/" class="catalog-filter__link">Катки дорожные</a></li>
-        <li class="catalog-filter__item"><a href="/catalog/sale/sale_buldozer/" class="catalog-filter__link">Асфальтоукладчики</a></li>
-        <li class="catalog-filter__item"><a href="/catalog/sale/sale_buldozer/" class="catalog-filter__link">Буровые установки</a></li>
-      </ul>
-      <p class="catalog-filter__sticker">Все категории</p>
-    </div>
-
+      <div class="catalog-filter__select_wrapper">
+        <p class="catalog-filter__name">По городу</p>
+        <?php 
+        $args = array(
+          'taxonomy' => 'cities',
+          'hide_empty' => true,
+        );
+        $terms = get_terms( $args );
+        echo '<select class="catalog-filter__select" name="sort_city" onChange="this.form.submit();">';
+        echo '<option value=""></option>';
+        echo '<option value="">По всей России</option>';
+        foreach ($terms as $term) {
+          echo '<option value="'.$term->slug.'">'.$term->name.'</option>';
+        }
+        echo '</select>';
+        $term = get_term_by( 'slug', $sort_city, 'cities');
+        $term_name = $term->name;
+        echo '<span class="filter_current_city">'.$term_name.'</span>'
+        ?>
+      </div>
+    </form>
     <div id="itemContainer" class="catalog__card-wrapper catalog__card-wrapper--narrow">
-
       <?php
-
-      if( isset( $_POST['tech_type'] ) ) { $tech_type = $_POST['tech_type']; }
       $args = array(
-      // 'posts_per_page' => 5,
+        'posts_per_page' => 18,
         'category_name' => $tech_type,
         'post_type' => 'catalog_technics',
+        'orderby' => array( 
+          'date' => $sort_date,
+        ),
       );
-      $posts = new WP_Query( $args );
-      while( $posts->have_posts() ) :
+      $args[] = array('relation' => 'AND');   
+
+      if ( $sort_city != "" ) {              
+       $args['tax_query'][] = array(                    
+        'taxonomy'  => 'cities', 
+        'field'     => 'slug', 
+        'terms' => $_GET['sort_city'], 
+      );}
+
+       $posts = new WP_Query( $args );
+       while( $posts->have_posts() ) :
+        $year = get_post_meta( get_the_id(), 'tech_info_year', true);
+        $rent_info_price = get_post_meta( get_the_id(), 'tech_info_price', true);
 
         $posts->the_post();
         $rent_info_brand = get_post_meta( get_the_id(), 'tech_info_brand', true); 
@@ -119,13 +155,7 @@
       endwhile;
       wp_reset_postdata();
       ?>
-
-
-
-
-
-
-
+      
     </div>
     <div class="holder pagination">
     </div>

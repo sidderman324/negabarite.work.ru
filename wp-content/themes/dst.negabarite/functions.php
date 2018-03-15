@@ -199,7 +199,7 @@ function add_cities_page() {
 /* создаем функцию с произвольным именем и вставляем 
 в неё register_taxonomy() */	
 register_taxonomy('cities',
-	array('post'),
+	array('catalog_technics'),
 	array(
 		'hierarchical' => false,
 			/* true - по типу рубрик, false - по типу меток, 
@@ -430,28 +430,28 @@ add_action("wp_ajax_nopriv_send_form", "send_form");
 
 /* Функция получения названия города по поддомену 
 */ 
- 
+
 function get_cityname($sub) { 
-  $subs = array( 
-    'novosibirsk' => 'Новосибирск',  
-    'ufa' => 'Уфа', 
-    'ekaterinburg' => 'Екатеринбург',  
-    'krasnoyarsk' => 'Красноярск', 
-    'novgorod' => 'Новгород', 
-    'perm' => 'Пермь', 
-    'kazan' => 'Казань', 
-    'voronezh' => 'Воронеж', 
-    'chelyabinsk' => 'Челябинск', 
-    'volgograd' => 'Волгоград', 
-    'omsk' => 'Омск', 
-        'rostovnadonu' => 'Ростов-на-Дону', 
-        'moscow' => 'Москва', 
-        'saintpetersburg' => 'Санкт-Петербург', 
-        'krasnodar' => 'Краснодар' 
-  ); 
-    return $subs[$sub];    
+	$subs = array( 
+		'novosibirsk' => 'Новосибирск',  
+		'ufa' => 'Уфа', 
+		'ekaterinburg' => 'Екатеринбург',  
+		'krasnoyarsk' => 'Красноярск', 
+		'novgorod' => 'Новгород', 
+		'perm' => 'Пермь', 
+		'kazan' => 'Казань', 
+		'voronezh' => 'Воронеж', 
+		'chelyabinsk' => 'Челябинск', 
+		'volgograd' => 'Волгоград', 
+		'omsk' => 'Омск', 
+		'rostovnadonu' => 'Ростов-на-Дону', 
+		'moscow' => 'Москва', 
+		'saintpetersburg' => 'Санкт-Петербург', 
+		'krasnodar' => 'Краснодар' 
+	); 
+	return $subs[$sub];    
 } 
- 
+
 /* 
 /* Функция получения субдомена 
 */ 
