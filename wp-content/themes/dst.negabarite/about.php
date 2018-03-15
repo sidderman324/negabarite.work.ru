@@ -17,6 +17,7 @@
 
 
       <div class="about__text-wrapper--wide">
+          <h1 class="about__main-title"><?= get_post_meta( get_the_id(), 'meta_page_h1', true)?></h1>
           <?php
           echo $post->post_content;
           ?>

@@ -138,31 +138,31 @@
     <a href="#" class="service__btn">Заказать услугу</a>
 
     <div class="service__item-wrapper">
-      <a href="#" class="service-card">
+      <a href="/service/road_repair<?= $gorod ?>/" class="service-card">
         <div class="service-card__img-wrapper">
           <img src="<?php echo get_template_directory_uri(); ?>/img/service_remont.png" alt="" data-unhover-img="<?php echo get_template_directory_uri(); ?>/img/service_remont.png" data-hover-img="<?php echo get_template_directory_uri(); ?>/img/service_remont_color.png" class="service-card__img">
         </div>
         <p class="service-card__text">Ремонт<br> дорог</p>
       </a>
-      <a href="#" class="service-card">
+      <a href="/service/road_construction<?= $gorod ?>/" class="service-card">
         <div class="service-card__img-wrapper">
           <img src="<?php echo get_template_directory_uri(); ?>/img/service_stroitelstvo.png" alt="" data-unhover-img="<?php echo get_template_directory_uri(); ?>/img/service_stroitelstvo.png" data-hover-img="<?php echo get_template_directory_uri(); ?>/img/service_stroitelstvo_color.png" class="service-card__img">
         </div>
         <p class="service-card__text">Строительство<br> дорог</p>
       </a>
-      <a href="#" class="service-card">
+      <a href="/service/construction_oil_pipelines<?= $gorod ?>/" class="service-card">
         <div class="service-card__img-wrapper">
           <img src="<?php echo get_template_directory_uri(); ?>/img/service_stroitelstvo_neft.png" alt="" data-unhover-img="<?php echo get_template_directory_uri(); ?>/img/service_stroitelstvo_neft.png" data-hover-img="<?php echo get_template_directory_uri(); ?>/img/service_stroitelstvo_neft_color.png" class="service-card__img">
         </div>
         <p class="service-card__text">Строительство<br> нефтепроводов</p>
       </a>
-      <a href="#" class="service-card">
+      <a href="/service/construction_gas_pipelines<?= $gorod ?>/" class="service-card">
         <div class="service-card__img-wrapper">
           <img src="<?php echo get_template_directory_uri(); ?>/img/service_stroitelstvo_gaz.png" alt="" data-unhover-img="<?php echo get_template_directory_uri(); ?>/img/service_stroitelstvo_gaz.png" data-hover-img="<?php echo get_template_directory_uri(); ?>/img/service_stroitelstvo_gaz_color.png" class="service-card__img">
         </div>
         <p class="service-card__text">Строительство<br> газопроводов</p>
       </a>
-      <a href="#" class="service-card">
+      <a href="/service/road_filling<?= $gorod ?>/" class="service-card">
         <div class="service-card__img-wrapper">
           <img src="<?php echo get_template_directory_uri(); ?>/img/service_stroitelstvo_otsipka.png" alt="" data-unhover-img="<?php echo get_template_directory_uri(); ?>/img/service_stroitelstvo_otsipka.png" data-hover-img="<?php echo get_template_directory_uri(); ?>/img/service_stroitelstvo_otsipka_color.png" class="service-card__img">
         </div>

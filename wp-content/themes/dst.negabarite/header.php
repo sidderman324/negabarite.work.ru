@@ -138,11 +138,11 @@ html { margin-top: 0 !important; margin-bottom: 0 !important; }
         <li class="main-menu__item"><a href="#" class="main-menu__link">Услуги</a>
           <span class="main-menu__marker"></span>
           <ul class="submenu submenu--wide">
-            <li class="submenu__item"><a href="/service/road_repair/" class="submenu__link">Ремонт дорог</a></li>
-            <li class="submenu__item"><a href="/service/road_construction/" class="submenu__link">Строительство дорог</a></li>
-            <li class="submenu__item"><a href="/service/construction_oil_pipelines/" class="submenu__link">Строительство нефтепроводов</a></li>
-            <li class="submenu__item"><a href="/service/construction_gas_pipelines/" class="submenu__link">Строительство газопроводов</a></li>
-            <li class="submenu__item"><a href="/service/road_filling/" class="submenu__link">Отсыпка дорог</a></li>
+            <li class="submenu__item"><a href="/service/road_repair<?= $gorod ?>/" class="submenu__link">Ремонт дорог</a></li>
+            <li class="submenu__item"><a href="/service/road_construction<?= $gorod ?>/" class="submenu__link">Строительство дорог</a></li>
+            <li class="submenu__item"><a href="/service/construction_oil_pipelines<?= $gorod ?>/" class="submenu__link">Строительство нефтепроводов</a></li>
+            <li class="submenu__item"><a href="/service/construction_gas_pipelines<?= $gorod ?>/" class="submenu__link">Строительство газопроводов</a></li>
+            <li class="submenu__item"><a href="/service/road_filling<?= $gorod ?>/" class="submenu__link">Отсыпка дорог</a></li>
           </ul>
         </li>
         <li class="main-menu__item"><a href="/catalog/sale/" class="main-menu__link">Продажа</a>
