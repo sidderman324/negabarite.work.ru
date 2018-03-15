@@ -429,28 +429,7 @@ add_action("wp_ajax_nopriv_send_form", "send_form");
 
 
 /* Функция получения названия города по поддомену 
-*/ 
-
-function get_cityname($sub) { 
-	$subs = array( 
-		'novosibirsk' => 'Новосибирск',  
-		'ufa' => 'Уфа', 
-		'ekaterinburg' => 'Екатеринбург',  
-		'krasnoyarsk' => 'Красноярск', 
-		'novgorod' => 'Новгород', 
-		'perm' => 'Пермь', 
-		'kazan' => 'Казань', 
-		'voronezh' => 'Воронеж', 
-		'chelyabinsk' => 'Челябинск', 
-		'volgograd' => 'Волгоград', 
-		'omsk' => 'Омск', 
-		'rostovnadonu' => 'Ростов-на-Дону', 
-		'moscow' => 'Москва', 
-		'saintpetersburg' => 'Санкт-Петербург', 
-		'krasnodar' => 'Краснодар' 
-	); 
-	return $subs[$sub];    
-=======
+*/
  
 function get_cityname( $sub ) {
   $subs = array( 
