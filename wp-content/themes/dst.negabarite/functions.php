@@ -450,6 +450,27 @@ function get_cityname($sub) {
 		'krasnodar' => 'Краснодар' 
 	); 
 	return $subs[$sub];    
+=======
+ 
+function get_cityname( $sub ) {
+  $subs = array( 
+    'novosibirsk' => 'Новосибирск',  
+    'ufa' => 'Уфа', 
+    'ekaterinburg' => 'Екатеринбург',  
+    'krasnoyarsk' => 'Красноярск', 
+    'novgorod' => 'Новгород', 
+    'perm' => 'Пермь', 
+    'kazan' => 'Казань', 
+    'voronezh' => 'Воронеж', 
+    'chelyabinsk' => 'Челябинск', 
+    'volgograd' => 'Волгоград', 
+    'omsk' => 'Омск', 
+        'rostovnadonu' => 'Ростов-на-Дону', 
+        'moscow' => 'Москва', 
+        'saintpetersburg' => 'Санкт-Петербург', 
+        'krasnodar' => 'Краснодар' 
+  ); 
+    return $subs[$sub];    
 } 
 
 /* 
@@ -460,4 +481,3 @@ function get_sub() {
     return $sub[0]; 
 }
 /* 
->>>>>>> c760e8889c7b1960217bbf232fa3ceccec6c1c14

@@ -1,17 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+/*
+ * Template name: Контакты
+ */
+?>
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&amp;subset=cyrillic" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
-    <title>Адреса филиалов</title>
-  </head>
+<?php get_header(); get?>
 
-  <body>
-    @@include('../_include/header.html')
+<?php include ('/modules/type.php'); ?>
 
     <section class="contacts">
       <div class="container contacts__inner">
@@ -76,29 +71,10 @@
         </div>
 
 
-
       </div>
     </section>
 
-    <section class="consult">
-      <div class="container consult__inner">
-        <div class="consult__title-wrapper">
-          <h2 class="consult__title">Консультация</h2>
-          <p class="consult__subtitle">Появились вопросы?</p>
-        </div>
-        <a href="#" class="consult__btn">Задать вопрос</a>
-        <p class="consult__text">Мы подробно расскажем о наших услугах, видах работ,<br> рассчитаем стоимость и подготовим индивидуальное предложение!</p>
-      </div>
-    </section>
 
-    @@include('../_include/footer.html')
+<?php include ('/modules/consult.php'); ?>
 
-
-
-
-    <script src='/js/script.js'></script>
-
-
-  </body>
-
-</html>
+<?php get_footer(); ?>

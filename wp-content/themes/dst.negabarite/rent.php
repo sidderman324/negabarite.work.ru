@@ -4,7 +4,7 @@
  */
 ?>
 
-<?php get_header(); ?>
+<?php get_header(); get?>
 
 <?php include ('/modules/type.php'); ?>
 
@@ -34,7 +34,7 @@
     </div>
 
     <div class="catalog__title-wrapper">
-      <h2 class="catalog__title"><?php echo $title; ?></h2>
+        <h2 class="catalog__title"><?php echo $title; ?></h2>
       <p class="catalog__subtitle">Аренда Дорожно-строительной техники</p>
     </div>
 

@@ -7,14 +7,14 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="shortcut icon" href="/favicon.png" type="image/png">
   <?php wp_head(); ?>
-  <?php 
+  <?php
   is_single(); {
-    $meta_title = $brand . $rent_info_model .' - продажа и аренда по всей стране. Арендовать спецтехнику, покупка спецтехники'; 
-    $meta_description = $brand . $rent_info_model .' - продажа и аренда по всей стране. Арендовать спецтехнику, покупка спецтехники'; 
-  } 
+    $meta_title = $brand . $rent_info_model .' - продажа и аренда по всей стране. Арендовать спецтехнику, покупка спецтехники';
+    $meta_description = $brand . $rent_info_model .' - продажа и аренда по всей стране. Арендовать спецтехнику, покупка спецтехники';
+  }
   is_page(); {
-    $meta_title = get_post_meta( get_the_id(), 'meta_page_title', true);
-    $meta_description = get_post_meta( get_the_id(), 'meta_page_description', true);
+      $meta_title = get_post_meta( get_the_id(), 'meta_page_title', true);
+      $meta_description = get_post_meta( get_the_id(), 'meta_page_description', true);
   }
   ?>
 
@@ -22,7 +22,7 @@
   <meta name="description" content="<?php echo $meta_description; ?>" />
 </head>
 <style>
-html { margin-top: 0 !important; margin-bottom: 0 !important; } 
+html { margin-top: 0 !important; margin-bottom: 0 !important; }
 </style>
 <body>
 
@@ -52,15 +52,15 @@ html { margin-top: 0 !important; margin-bottom: 0 !important; }
       case 'omsk': { $city_name = "Омск";} break;
       case 'perm': { $city_name = "Пермь";} break;
       case 'rostov-na-donu': { $city_name = "Ростов-на-Дону";} break;
-      case 'sankt-peterburg': { $city_name = "Санкт-Петербург";} break;
-      case 'ufa': { $city_name = "Уфа";} break;
-      case 'cheljabinsk': { $city_name = "Челябинск";} break;
-      default: { $city_name = "По всей России";} break;
+        case 'sankt-peterburg': { $city_name = "Санкт-Петербург";} break;
+        case 'ufa': { $city_name = "Уфа";} break;
+        case 'cheljabinsk': { $city_name = "Челябинск";} break;
+        default: { $city_name = "По всей России";} break;
     }
     // echo $subdomain[0];
     ?>
-    
-    <?php 
+
+    <?php
       if (get_cityname(get_sub())!=''){
           $cur_city = get_cityname(get_sub());
       }else{
@@ -108,7 +108,7 @@ html { margin-top: 0 !important; margin-bottom: 0 !important; }
   </div>
 
 
-<?php 
+<?php
     global $gorod;
     if (get_sub()!='negabarite'){
         $gorod = '-'.get_sub();
@@ -138,11 +138,11 @@ html { margin-top: 0 !important; margin-bottom: 0 !important; }
         <li class="main-menu__item"><a href="#" class="main-menu__link">Услуги</a>
           <span class="main-menu__marker"></span>
           <ul class="submenu submenu--wide">
-            <li class="submenu__item"><a href="/service/road_repair/" class="submenu__link">Ремонт дорог</a></li>
-            <li class="submenu__item"><a href="/service/road_construction/" class="submenu__link">Строительство дорог</a></li>
-            <li class="submenu__item"><a href="/service/construction_oil_pipelines/" class="submenu__link">Строительство нефтепроводов</a></li>
-            <li class="submenu__item"><a href="/service/construction_gas_pipelines/" class="submenu__link">Строительство газопроводов</a></li>
-            <li class="submenu__item"><a href="/service/road_filling/" class="submenu__link">Отсыпка дорог</a></li>
+            <li class="submenu__item"><a href="/service/remont-dorog<?= $gorod ?>/" class="submenu__link">Ремонт дорог</a></li>
+            <li class="submenu__item"><a href="/service/stroitelstvo-dorog<?= $gorod ?>/" class="submenu__link">Строительство дорог</a></li>
+            <li class="submenu__item"><a href="/service/stroitelstvo-nefteprovodov<?= $gorod ?>/" class="submenu__link">Строительство нефтепроводов</a></li>
+            <li class="submenu__item"><a href="/service/stroitelstvo-gazoprovodov<?= $gorod ?>/" class="submenu__link">Строительство газопроводов</a></li>
+            <li class="submenu__item"><a href="/service/otsypka-dorog<?= $gorod ?>/" class="submenu__link">Отсыпка дорог</a></li>
           </ul>
         </li>
         <li class="main-menu__item"><a href="/catalog/sale/" class="main-menu__link">Продажа</a>
