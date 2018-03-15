@@ -431,7 +431,7 @@ add_action("wp_ajax_nopriv_send_form", "send_form");
 /* Функция получения названия города по поддомену 
 */ 
  
-function get_cityname($sub) { 
+function get_cityname( $sub ) {
   $subs = array( 
     'novosibirsk' => 'Новосибирск',  
     'ufa' => 'Уфа', 
