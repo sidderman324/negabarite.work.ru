@@ -138,11 +138,11 @@ html { margin-top: 0 !important; margin-bottom: 0 !important; }
         <li class="main-menu__item"><a href="#" class="main-menu__link">Услуги</a>
           <span class="main-menu__marker"></span>
           <ul class="submenu submenu--wide">
-            <li class="submenu__item"><a href="/service/remont-dorog<?= $gorod ?>/" class="submenu__link">Ремонт дорог</a></li>
-            <li class="submenu__item"><a href="/service/stroitelstvo-dorog<?= $gorod ?>/" class="submenu__link">Строительство дорог</a></li>
-            <li class="submenu__item"><a href="/service/stroitelstvo-nefteprovodov<?= $gorod ?>/" class="submenu__link">Строительство нефтепроводов</a></li>
-            <li class="submenu__item"><a href="/service/stroitelstvo-gazoprovodov<?= $gorod ?>/" class="submenu__link">Строительство газопроводов</a></li>
-            <li class="submenu__item"><a href="/service/otsypka-dorog<?= $gorod ?>/" class="submenu__link">Отсыпка дорог</a></li>
+            <li class="submenu__item"><a href="/remont-dorog<?= $gorod ?>/" class="submenu__link">Ремонт дорог</a></li>
+            <li class="submenu__item"><a href="/stroitelstvo-dorog<?= $gorod ?>/" class="submenu__link">Строительство дорог</a></li>
+            <li class="submenu__item"><a href="/stroitelstvo-nefteprovodov<?= $gorod ?>/" class="submenu__link">Строительство нефтепроводов</a></li>
+            <li class="submenu__item"><a href="/stroitelstvo-gazoprovodov<?= $gorod ?>/" class="submenu__link">Строительство газопроводов</a></li>
+            <li class="submenu__item"><a href="/otsypka-dorog<?= $gorod ?>/" class="submenu__link">Отсыпка дорог</a></li>
           </ul>
         </li>
         <li class="main-menu__item"><a href="/catalog/sale/" class="main-menu__link">Продажа</a>
