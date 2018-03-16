@@ -26,7 +26,14 @@
 
 
   ?>
-
+    <?php
+    global $gorod;
+    if (get_sub()!='negabarite'){
+        $gorod = '-'.get_sub();
+    }else{
+        $gorod = '';
+    }
+    ?>
   <title><?php echo $meta_title; ?></title>
     <meta name="description" content="<?php echo $meta_description; ?>" />
     <meta name="keywords" content="<?php echo $meta_keys; ?>" />
@@ -38,6 +45,7 @@ html { margin-top: 0 !important; margin-bottom: 0 !important; }
 <body>
 
  <header class="page-header">
+
   <div class="container page-header__inner">
 
     <!-- Вставка логотипа -->
@@ -107,8 +115,8 @@ html { margin-top: 0 !important; margin-bottom: 0 !important; }
     <div class="feedback">
       <a href="#" class="feedback__btn btn_popup">Заказать звонок</a>
       <div class="feedback__contact">
-        <a href="tel:+78007770508" class="feedback__phone">8-800-777-05-08</a>
-        <a href="mailto:zakaz@negabarite.com" class="feedback__mail">zakaz@negabarite.ru</a>
+        <a href="tel:+78007770508" class="feedback__phone"><? echo (get_option('contact_phone'.$gorod))? get_option('contact_phone'.$gorod): get_option('contact_phone') ?></a>
+        <a href="mailto:zakaz@negabarite.com" class="feedback__mail"><?=get_option('contact_email') ?></a>
       </div>
     </div>
 
@@ -117,17 +125,6 @@ html { margin-top: 0 !important; margin-bottom: 0 !important; }
     </div>
 
   </div>
-
-
-<?php
-    global $gorod;
-    if (get_sub()!='negabarite'){
-        $gorod = '-'.get_sub();
-    }else{
-        $gorod = '';
-    }
-?>
-
 
   <nav class="main-menu">
     <div class="container">

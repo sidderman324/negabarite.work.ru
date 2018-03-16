@@ -85,11 +85,11 @@
 
 
 
-        <a href="tel:+78007770508" class="page-footer__phone">8-800-777-05-08</a>
+        <a href="tel:+78007770508" class="page-footer__phone"><? echo (get_option('contact_phone'.$gorod))? get_option('contact_phone'.$gorod): get_option('contact_phone') ?></a>
 
-        <a href="mailto:zakaz@negabarite.com" class="page-footer__mail">zakaz@negabarite.ru</a>
+        <a href="mailto:zakaz@negabarite.com" class="page-footer__mail"><?=get_option('contact_email') ?></a>
 
-        <a href="https://yandex.ru/maps/-/CBeRYCqfOD" class="page-footer__address">г. Краснодар,<br> ул.Дзержинского, д.3/2. Оф.504
+          <a href="https://yandex.ru/maps/-/CBeRYCqfOD" class="page-footer__address"><? echo (get_option('contact_adres'.$gorod))? get_option('contact_adres'.$gorod): get_option('contact_adres') ?></a>
 
       </div>
 
