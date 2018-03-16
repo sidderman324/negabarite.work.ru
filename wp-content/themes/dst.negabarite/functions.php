@@ -460,3 +460,4 @@ function get_sub() {
     return $sub[0]; 
 }
 /* 
+>>>>>>> c760e8889c7b1960217bbf232fa3ceccec6c1c14

@@ -93,35 +93,51 @@
 
     <div class="catalog__card-wrapper">
       <a href="/arenda-buldozerov<?= $gorod ?>/" class="catalog-card">
-        <img src="<?php echo get_template_directory_uri(); ?>/img/buldozer_card.png" alt="" class="catalog-card__img">
+        <div class="service-card__img-wrapper">
+          <img src="<?php echo get_template_directory_uri(); ?>/img/buldozer_card.png" alt="" class="catalog-card__img">
+        </div>
         <p class="catalog-card__text">Аренда<br> бульдозера</p>
       </a>
       <a href="/arenda-ekskavatorov<?= $gorod ?>/" class="catalog-card">
-        <img src="<?php echo get_template_directory_uri(); ?>/img/excavator_card.png" alt="" class="catalog-card__img">
+        <div class="service-card__img-wrapper">
+          <img src="<?php echo get_template_directory_uri(); ?>/img/excavator_card.png" alt="" class="catalog-card__img">
+        </div>
         <p class="catalog-card__text">Аренда<br> экскаватора</p>
       </a>
       <a href="/arenda-pogruzchikov<?= $gorod ?>/" class="catalog-card">
-        <img src="<?php echo get_template_directory_uri(); ?>/img/pogruzchik_card.png" alt="" class="catalog-card__img">
+        <div class="service-card__img-wrapper">
+          <img src="<?php echo get_template_directory_uri(); ?>/img/pogruzchik_card.png" alt="" class="catalog-card__img">
+        </div>
         <p class="catalog-card__text">Аренда<br> погрузчика</p>
       </a>
       <a href="/arenda-samosvalov<?= $gorod ?>/" class="catalog-card">
-        <img src="<?php echo get_template_directory_uri(); ?>/img/samosval_card.png" alt="" class="catalog-card__img">
+        <div class="service-card__img-wrapper">
+          <img src="<?php echo get_template_directory_uri(); ?>/img/samosval_card.png" alt="" class="catalog-card__img">
+        </div>
         <p class="catalog-card__text">Аренда<br> самосвала</p>
       </a>
       <a href="/arenda-avtokranov<?= $gorod ?>/" class="catalog-card">
-        <img src="<?php echo get_template_directory_uri(); ?>/img/autokran_card.png" alt="" class="catalog-card__img">
+        <div class="service-card__img-wrapper">
+          <img src="<?php echo get_template_directory_uri(); ?>/img/autokran_card.png" alt="" class="catalog-card__img">
+        </div>
         <p class="catalog-card__text">Аренда<br> автокрана</p>
       </a>
       <a href="/arenda-dorozhnyh-katkov<?= $gorod ?>/" class="catalog-card">
-        <img src="<?php echo get_template_directory_uri(); ?>/img/road_ratok_card.png" alt="" class="catalog-card__img">
+        <div class="service-card__img-wrapper">
+          <img src="<?php echo get_template_directory_uri(); ?>/img/road_ratok_card.png" alt="" class="catalog-card__img">
+        </div>
         <p class="catalog-card__text">Аренда<br> катка дорожного</p>
       </a>
       <a href="/arenda-asfaltoukladchikov<?= $gorod ?>/" class="catalog-card">
-        <img src="<?php echo get_template_directory_uri(); ?>/img/asphaltoukladchik_card.png" alt="" class="catalog-card__img">
+        <div class="service-card__img-wrapper">
+          <img src="<?php echo get_template_directory_uri(); ?>/img/asphaltoukladchik_card.png" alt="" class="catalog-card__img">
+        </div>
         <p class="catalog-card__text">Аренда<br> асфальтоукладчика</p>
       </a>
       <a href="/arenda-burovoj-ustanovki<?= $gorod ?>/" class="catalog-card">
-        <img src="<?php echo get_template_directory_uri(); ?>/img/burovaya_ustanovka_card.png" alt="" class="catalog-card__img">
+        <div class="service-card__img-wrapper">
+          <img src="<?php echo get_template_directory_uri(); ?>/img/burovaya_ustanovka_card.png" alt="" class="catalog-card__img">
+        </div>
         <p class="catalog-card__text">Аренда<br> буровой установки</p>
       </a>
     </div>

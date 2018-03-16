@@ -1307,6 +1307,13 @@ body {
 .catalog-card__img {
   width: 100%;
   height: auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
 }
 .catalog-card__img-wrapper .catalog-card__img {
   height: auto;

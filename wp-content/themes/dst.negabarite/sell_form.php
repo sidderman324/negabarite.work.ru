@@ -1,109 +1,32 @@
 <?php
-/*
- * Template name: Форма продажи техники
- */
+
+if (isset($_POST["yourName"])) { $person_name = $_POST["yourName"];}
+if (isset($_POST["phoneNumber"])) { $person_phone = $_POST["phoneNumber"];}
+
+
+$mail_to = "syd.phoenix@gmail.com"; 
+// info@kweb.studio
+$mail_from = "Новая заявка на ДСТ Negabarite.ru" . "\n";
+$mail_body = '<html>  
+<head>  
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">  
+  <title>Новая заявка на сайте ДСТ Negabarite.ru</title>  
+</head>
+<body>  
+  <table width="100%" cellpadding="0" cellspacing="0"><tr><td>
+
+    <table id="top-message" cellpadding="0" cellspacing="0" bgcolor="ffffff"><tr><td><img src="https://png.icons8.com/ios/50/000000/da-vinci.png" style="width: 20px; height: 20px;"></td><td><p style="margin: 5px 0; padding-left: 10px;">От кого: '. $person_name .'</p></td></tr></table>
+
+    <table id="main" cellpadding="0" cellspacing="0" bgcolor="ffffff"><tr><td><img src="https://png.icons8.com/ios/50/000000/phone.png" style="width: 20px; height: 20px;"></td><td><p style="margin: 5px 0; padding-left: 10px;">Номер телефона: '.$person_phone.'</p></td></tr></table>
+  
+  </tr></td>
+</table>
+</body>  
+</html>';
+$headers  = "Content-type: text/html; charset=utf-8 \r\n";
+
+wp_mail($mail_to, $mail_from, $mail_body, $headers);
+
+header( 'Location: http://negabarite.ru/', true, 301 );
+echo $mail_body;
 ?>
-<?php 
-require_once( $_SERVER['DOCUMENT_ROOT'] . '/wp-admin/includes/image.php' );
-require_once( $_SERVER['DOCUMENT_ROOT'] . '/wp-admin/includes/file.php' );
-require_once( $_SERVER['DOCUMENT_ROOT'] . '/wp-admin/includes/media.php' );
-?>
-<?php get_header(); ?>
-
-<div class="breadcrumbs">
-  <div class="container breadcrumbs__inner">
-    <a href="/" class="breadcrumbs__link">Главная</a>
-    <span class="breadcrumbs__current"><?php the_title(); ?></span>
-  </div>
-</div>
-<div class="container">
-  <div class="form__title-wrapper">
-    <h2 class="form__title"><?php the_title(); ?></h2>
-  </div>
-</div>
-
-
-<?php
-require_once( ABSPATH . 'wp-admin/includes/image.php' );
-require_once( ABSPATH . 'wp-admin/includes/file.php' );
-require_once( ABSPATH . 'wp-admin/includes/media.php' );
-?>
-
-<div class="form">
-  <div class="container">
-    <form action="<?php echo admin_url('admin-ajax.php?action=send_form'); ?>" method="post" id="sell_form" enctype="multipart/form-data" class="form__inner">
-
-      <?php 
-      $rent_sale = get_post_meta($post->ID, 'meta_page_rent_sale', true);
-      if($rent_sale == "Продажа") {
-        echo '<div class="form__row">';
-        echo '<p class="form__text">Стоимость</p> ';
-        echo '<input name="price" type="text" class="form__input">';
-        echo '</div>';
-      } 
-      ?>      
-      <div class="form__row">
-        <p class="form__text">Категория</p>
-        <input type="hidden" name="rent_sale" value="<?php echo $rent_sale;?>">
-
-        <select name="category" class="form__input" id="category" required>
-          <option value="buldozer">Бульдозеры</option>
-          <option value="excavator">Экскаваторы</option>
-          <option value="pogruzchik">Погрузчики</option>
-          <option value="samosval">Самосвалы</option>
-          <option value="autokran">Автокраны</option>
-          <option value="road_ratok">Катки дорожные</option>
-          <option value="asphaltoukladchik">Асфальтоукладчики</option>
-          <option value="burovaya_ustanovka">Буровые установки</option>
-        </select>
-      </div>
-      <div class="form__row">
-        <p class="form__text" required>Марка</p>
-        <!-- <input type="text" name="brand" id="brand" class="form__input"> -->
-        <select name="brand" class="form__input" id="brand">
-        </select>
-      </div>
-      <div class="form__row">
-        <p class="form__text" required>Модель</p>
-        <input type="text" name="model" class="form__input">
-      </div>
-      <div class="form__row">
-        <p class="form__text" required>Год выпуска</p>
-        <input type="number" name="year" class="form__input">
-      </div>
-      <div class="form__row">
-        <p class="form__text">Наработка</p>
-        <input type="number" name="working_time" class="form__input">
-      </div>
-      <div class="form__row">
-        <p class="form__text">Расположение</p>
-        <input type="text" name="location" class="form__input">
-      </div>
-      <div class="form__row">
-        <p class="form__text">Телефон</p>
-        <input type="text" name="phone" id="phone" class="form__input">
-
-      </div>
-      <div class="form__row">
-        <div class="file-upload">
-         <label>
-          <input type="file" id="photo" name="photo[]" multiple="multiple" required/>
-          <span>Выберите файл</span>
-        </label>
-      </div>
-    </div>
-
-    <div class="form__row form__row--wide">
-      <p class="form__text">Комментарии</p>
-      <textarea type="text" name="comment" class="form__input form__input--big"></textarea>
-    </div>
-    <div class="form__row form__row--wide">
-      <p class="form__text">Дополнительное<br> оборудование</p>
-      <textarea type="text" name="add_equip" class="form__input form__input--big"></textarea>
-    </div>
-    <input type="submit" id="form_send" class="form__submit form-send-mail" name="" value="Опубликовать">
-  </form>
-</div>
-</div>
-
-<?php get_footer(); ?>
