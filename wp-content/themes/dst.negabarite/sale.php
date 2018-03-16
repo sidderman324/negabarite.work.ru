@@ -97,9 +97,7 @@
         echo '<option value=""></option>';
         echo '<option value="">По всей России</option>';
         foreach ($terms as $term) {
-          ?>
-          <option value="<?php echo $term->slug; ?>" <?php if($sort_city==$term->slug  ) echo "selected"; ?>><?php echo $term->name; ?></option>
-          <?php
+          echo '<option value="'.$term->slug.'">'.$term->name.'</option>';
         }
         echo '</select>';
         $term = get_term_by( 'slug', $sort_city, 'cities');
@@ -157,7 +155,7 @@
       endwhile;
       wp_reset_postdata();
       ?>
-
+      
     </div>
     <div class="holder pagination">
     </div>
@@ -167,6 +165,6 @@
 
 
 
-<?php include ('/modules/consult.php'); ?>
+<?php  get_template_part( '/modules/consult'); ?>
 
 <?php get_footer(); ?>

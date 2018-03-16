@@ -6,7 +6,7 @@
 
 <?php get_header(); get?>
 
-<?php include ('/modules/type.php'); ?>
+<?php  get_template_part( '/modules/type'); ?>
 
     <section class="contacts">
       <div class="container contacts__inner">
@@ -75,6 +75,6 @@
     </section>
 
 
-<?php include ('/modules/consult.php'); ?>
+<?php  get_template_part( '/modules/consult'); ?>
 
 <?php get_footer(); ?>

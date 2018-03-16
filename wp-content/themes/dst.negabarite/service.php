@@ -1,12 +1,12 @@
 <?php
 /*
- * Template name: О компании
+ * Template name: Услуги
  */
 ?>
 
 <?php get_header(); get?>
 
-<?php  get_template_part( '/modules/type.php'); ?>
+<?php  get_template_part( '/modules/type'); ?>
 
   <section class="about">
     <div class="container about__inner">
@@ -16,12 +16,15 @@
       </div>
 
 
-      <div class="about__text-wrapper--wide">
+        <div class="container">
+         <div class="about__text-wrapper">
           <h1 class="about__main-title"><?= get_post_meta( get_the_id(), 'meta_page_h1', true)?></h1>
+          <p>
           <?php
           echo $post->post_content;
           ?>
-
+          </p>
+          </div>
 
         <h3 class="about__stage-title"></h3>
         <p class="about__text"></p>
@@ -29,11 +32,11 @@
         <p class="about__text"></p>
         <p class="about__text"></p>
 
-      </div>
+        </div>
     </div>
   </section>
 
 
-<?php  get_template_part( '/modules/consult.php'); ?>
+<?php  get_template_part( '/modules/consult'); ?>
 
 <?php get_footer(); ?>

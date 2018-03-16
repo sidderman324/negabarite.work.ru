@@ -4,9 +4,9 @@
  */
 ?>
 
-<?php get_header(); ?>
+<?php get_header(); get?>
 
-<?php include ('/modules/type.php'); ?>
+<?php  get_template_part( '/modules/type'); ?>
 
 <section class="catalog">
   <div class="container catalog__inner catalog__inner--category catalog__inner--bulldozer">
@@ -95,6 +95,6 @@
   </div>
 </section>
 
-<?php include ('/modules/consult.php'); ?>
+<?php  get_template_part( '/modules/consult'); ?>
 
 <?php get_footer(); ?>
