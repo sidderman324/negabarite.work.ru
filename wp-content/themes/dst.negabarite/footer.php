@@ -62,7 +62,7 @@
 
 
 <div class="feedback-form" id="buy-form">
-  <form action="" method="post">
+  <form action="<?php echo get_stylesheet_directory_uri() ?>/" method="post">
     <div class="feedback-form__row">
       <p class="feedback-form__text">Ваше имя</p>
       <input class="feedback-form__input" type="text" name="yourName" placeholder="Введите имя" size="30" maxlength="50" />
