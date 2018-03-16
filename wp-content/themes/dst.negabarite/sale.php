@@ -68,22 +68,22 @@
             <option value="ASC" <?php if($sort_date=="ASC"  ) echo "selected"; ?> >По убыванию</option>
           </select>
         </div>
-        <div class="catalog-filter__select_wrapper">
+        <!--<div class="catalog-filter__select_wrapper">
           <span class="catalog-filter__name">Цене</span>
           <select name="sort_price" id="sort_price" onChange="this.form.submit();" class="catalog-filter__link catalog-filter__select">
             <option value=""></option>
-            <option value="DESC" <?php if($sort_price=="DESC") echo "selected"; ?> >По возрастанию</option>
-            <option value="ASC" <?php if($sort_price=="ASC"  ) echo "selected"; ?> >По убыванию</option>
+            <option value="DESC" <?php /*if($sort_price=="DESC") echo "selected"; */?> >По возрастанию</option>
+            <option value="ASC" <?php /*if($sort_price=="ASC"  ) echo "selected"; */?> >По убыванию</option>
           </select>
         </div>
         <div class="catalog-filter__select_wrapper">
           <span class="catalog-filter__name">Году выпускa</span>
           <select name="sort_year" id="sort_year" onChange="this.form.submit();" class="catalog-filter__link catalog-filter__select">
             <option value=""></option>
-            <option value="DESC" <?php if($sort_year=="DESC") echo "selected"; ?> >По возрастанию</option>
-            <option value="ASC" <?php if($sort_year=="ASC"  ) echo "selected"; ?> >По убыванию</option>
+            <option value="DESC" <?php /*if($sort_year=="DESC") echo "selected"; */?> >По возрастанию</option>
+            <option value="ASC" <?php /*if($sort_year=="ASC"  ) echo "selected"; */?> >По убыванию</option>
           </select>
-        </div>
+        </div>-->
       </div>
       <div class="catalog-filter__select_wrapper">
         <p class="catalog-filter__name">По городу</p>
@@ -126,6 +126,16 @@
       );}
 
        $posts = new WP_Query( $args );
+
+
+       if (!$posts->have_posts()):
+           ?>
+
+           <div class="catalog-card__img-wrapper">
+               <p class="catalog-card__text catalog-card__text--normal">Нет техники по вашим параметрам</p>
+           </div>
+
+       <?php endif;
        while( $posts->have_posts() ) :
         $year = get_post_meta( get_the_id(), 'tech_info_year', true);
         $rent_info_price = get_post_meta( get_the_id(), 'tech_info_price', true);

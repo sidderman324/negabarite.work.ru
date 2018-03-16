@@ -25,6 +25,7 @@
 		$rent_info_description = get_post_meta( get_the_id(), 'tech_info_comment', true); 
 		$rent_info_add_eqiup = get_post_meta( get_the_id(), 'tech_info_add_equip', true);
 
+
 		?>
 
 		<div class="catalog__title-wrapper">

@@ -59,9 +59,9 @@
 
         <ul>
 
-          <li class="footer-link__item"><a href="#" class="footer-link__link">Продажа дорожно-стройтельной техники</a></li>
+          <li class="footer-link__item"><a href="/katalog-tehniki/" class="footer-link__link">Продажа дорожно-стройтельной техники</a></li>
 
-          <li class="footer-link__item"><a href="#" class="footer-link__link">Продажа дизельного топлива</a></li>
+          <li class="footer-link__item"><a href="/katalog-tehniki/" class="footer-link__link">Продажа дизельного топлива</a></li>
 
         </ul>
 
@@ -73,9 +73,9 @@
 
     <div class="page-footer__column">
 
-      <a href="#" class="page-footer__link">Выполненные объекты</a>
+     <!-- <a href="#" class="page-footer__link">Выполненные объекты</a>-->
 
-      <a href="#" class="page-footer__link">О компании</a>
+      <a href="/about/" class="page-footer__link">О компании</a>
 
       <a href="/contacts/" class="page-footer__link">Контакты</a>
 
@@ -115,11 +115,9 @@
 
 
 <div class="feedback-form" id="buy-form">
-<<<<<<< Updated upstream
-  <form action="<?php echo get_stylesheet_directory_uri() ?>/" method="post">
-=======
+
   <form action="<?php echo get_stylesheet_directory_uri() ?>/send_script.php" method="post">
->>>>>>> Stashed changes
+
     <div class="feedback-form__row">
       <p class="feedback-form__text">Ваше имя</p>
       <input class="feedback-form__input" type="text" name="yourName" placeholder="Введите имя" size="30" maxlength="50" />

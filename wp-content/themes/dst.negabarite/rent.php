@@ -41,7 +41,7 @@
     <div class="catalog__btn-wrapper catalog__btn-wrapper--wide">
       <a href="#" class="catalog__btn catalog__btn--yellow">Арендовать</a>
       <a href="#" class="catalog__btn">Купить</a>
-      <a href="http://www.negabarite.com/" class="catalog__btn catalog__btn--big">Перевоз негабаритных грузов</a>
+      <a href="http://www.negabarite.com/" class="catalog__btn catalog__btn--big">Перевозка негабаритных грузов</a>
     </div>
     <div class="catalog__card-wrapper">
 

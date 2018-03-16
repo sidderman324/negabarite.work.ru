@@ -19,11 +19,13 @@
         <div class="container">
          <div class="about__text-wrapper">
           <h1 class="about__main-title"><?= get_post_meta( get_the_id(), 'meta_page_h1', true)?></h1>
-          <p>
-          <?php
-          echo $post->post_content;
-          ?>
-          </p>
+             <p>
+                 <?php
+                 echo $post->post_content;
+                 ?>
+             </p>
+
+
           </div>
 
         <h3 class="about__stage-title"></h3>

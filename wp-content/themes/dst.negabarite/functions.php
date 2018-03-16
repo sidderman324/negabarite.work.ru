@@ -369,6 +369,20 @@ function send_form() {
 	$add_equip = $_POST['add_equip'];
 	$rent_sale = $_POST['rent_sale'];
 
+    $tech = array(
+        'buldozer' => 'бульдозера',
+        'excavator' => 'экскаватора',
+        'pogruzchik' => 'погрузчика',
+        'samosval' => 'самосвала',
+        'autokran' => 'автокрана',
+        'road_ratok' => 'дорожного катка',
+        'asphaltoukladchik' => 'асфальтоукладчика',
+        'burovaya_ustanovka' => 'буровой установки',
+    );
+
+    $descrip = "Аренда ".$tech[$category_id]." ".$brand." ".$model." ".$year." в ".$location;
+    $keys = "Аренда спецтехники, Аренда ".$tech[$category_id].", ".$brand." ".$model.", ".$location.", Негабарит онлайн";
+
 	$post_data = array(
 		'post_title'    => $brand .' '. $model,
 		'post_status'   => 'publish',
@@ -386,6 +400,8 @@ function send_form() {
 			'tech_info_model' => $model,
 			'tech_info_year' => $year,
 			'tech_info_rent_sale' => $rent_sale,
+            'page_desc' => $descrip,
+            'page_keys' => $keys,
 		),
 	);
 
@@ -427,11 +443,35 @@ add_action("wp_ajax_send_form", "send_form");
 add_action("wp_ajax_nopriv_send_form", "send_form");
 
 
+/* Функция получения всех поддоменов
+*/
+
+function get_allsubs() {
+    $subs = array(
+        'novosibirsk' => 'Новосибирск',
+        'ufa' => 'Уфа',
+        'ekaterinburg' => 'Екатеринбург',
+        'krasnoyarsk' => 'Красноярск',
+        'novgorod' => 'Новгород',
+        'perm' => 'Пермь',
+        'kazan' => 'Казань',
+        'voronezh' => 'Воронеж',
+        'chelyabinsk' => 'Челябинск',
+        'volgograd' => 'Волгоград',
+        'omsk' => 'Омск',
+        'rostovnadonu' => 'Ростов-на-Дону',
+        'moscow' => 'Москва',
+        'saintpetersburg' => 'Санкт-Петербург',
+        'krasnodar' => 'Краснодар'
+    );
+
+    return array_keys($subs);
+}
 
 /* Функция получения названия города по поддомену 
 */ 
 
-function get_cityname($sub) { 
+function get_cityname($sub) {
 	$subs = array( 
 		'novosibirsk' => 'Новосибирск',  
 		'ufa' => 'Уфа', 
@@ -448,7 +488,8 @@ function get_cityname($sub) {
 		'moscow' => 'Москва', 
 		'saintpetersburg' => 'Санкт-Петербург', 
 		'krasnodar' => 'Краснодар' 
-	); 
+	);
+
 	return $subs[$sub];
 }
  
@@ -460,3 +501,330 @@ function get_sub() {
     $sub = explode('.',$_SERVER['SERVER_NAME']); //разбиваем юрл для определения субдомена  
     return $sub[0]; 
 }
+
+
+/*
+/* Страница адресов городов в админке
+*/
+$contacts = array(
+    // yes, slug is the part of the option name, so, to get the value, use
+    // get_option( '{SLUG}_{ID}' );
+    'slug'	=>	'contact',
+
+    // h2 title on your settings page
+    'title' => 'Контакты для Городов',
+
+    // this displayed in admin menu, try to make it short
+    'menuname' => 'Адреса',
+
+    'capability'=>	'manage_options',
+
+    // WordPress option pages consist of sections, so,
+    // at first we create an array of sections and add fields in each section
+    'sections' => array(
+
+        // first section
+        array(
+            // section ID isn't used anywhere, but it is required
+            'id' => 'russia',
+
+            // section name is displayed as h2 heading
+            'name' => 'Контакты по России',
+
+            // and only now the array of fields
+            'fields' => array(
+                array(
+                    'id'	=> 'phone',
+                    'label' => 'Телефон',
+                    'description' => 'Телефон по умолчанию',
+                    'type'	=> 'text',
+                ),
+                array(
+                    'id'	=> 'email',
+                    'label' => 'Email',
+                    'description' => 'Значение по умолчанию',
+                    'type'	=> 'text',
+                ),
+                array(
+                    'id'	=> 'adres',
+                    'label' => 'Адрес',
+                    'description' => 'Значение по умолчанию',
+                    'type'	=> 'text',
+                ),
+            )
+        ),
+        array(
+            // section ID isn't used anywhere, but it is required
+            'id' => 'ekaterinburg',
+
+            // section name is displayed as h2 heading
+            'name' => 'Контакты в Екатеринбурге',
+
+            // and only now the array of fields
+            'fields' => array(
+                array(
+                    'id'	=> 'phone-ekaterinburg',
+                    'label' => 'Телефон',
+                    'type'	=> 'text',
+                ),
+                array(
+                    'id'	=> 'adres-ekaterinburg',
+                    'label' => 'Адрес',
+                    'type'	=> 'text',
+                ),
+                array(
+                    'id'	=> 'gmap-ekaterinburg',
+                    'label' => 'Ссылка на Gmaps',
+                    'type'	=> 'text',
+                ),
+            )
+        ),
+        array(
+            // section ID isn't used anywhere, but it is required
+            'id' => 'moscow',
+
+            // section name is displayed as h2 heading
+            'name' => 'Контакты в Москве',
+
+            // and only now the array of fields
+            'fields' => array(
+                array(
+                    'id'	=> 'phone-moscow',
+                    'label' => 'Телефон',
+                    'type'	=> 'text',
+                ),
+                array(
+                    'id'	=> 'adres-moscow',
+                    'label' => 'Адрес',
+                    'type'	=> 'text',
+                ),
+                array(
+                    'id'	=> 'gmap-moscow',
+                    'label' => 'Ссылка на Gmaps',
+                    'type'	=> 'text',
+                ),
+            )
+        ),
+        array(
+            // section ID isn't used anywhere, but it is required
+            'id' => 'saintpetersburg',
+
+            // section name is displayed as h2 heading
+            'name' => 'Контакты в Санкт-Петербурге',
+
+            // and only now the array of fields
+            'fields' => array(
+                array(
+                    'id'	=> 'phone-saintpetersburg',
+                    'label' => 'Телефон',
+                    'type'	=> 'text',
+                ),
+                array(
+                    'id'	=> 'adres-saintpetersburg',
+                    'label' => 'Адрес',
+                    'type'	=> 'text',
+                ),
+                array(
+                    'id'	=> 'gmap-saintpetersburg',
+                    'label' => 'Ссылка на Gmaps',
+                    'type'	=> 'text',
+                ),
+            )
+        ),
+        array(
+            // section ID isn't used anywhere, but it is required
+            'id' => 'rostovnadonu',
+
+            // section name is displayed as h2 heading
+            'name' => 'Контакты в Ростове-на-Дону',
+
+            // and only now the array of fields
+            'fields' => array(
+                array(
+                    'id'	=> 'phone-rostovnadonu',
+                    'label' => 'Телефон',
+                    'type'	=> 'text',
+                ),
+                array(
+                    'id'	=> 'adres-rostovnadonu',
+                    'label' => 'Адрес',
+                    'type'	=> 'text',
+                ),
+                array(
+                    'id'	=> 'gmap-rostovnadonu',
+                    'label' => 'Ссылка на Gmaps',
+                    'type'	=> 'text',
+                ),
+            )
+        ),
+
+        array(
+            // section ID isn't used anywhere, but it is required
+            'id' => 'krasnodar',
+
+            // section name is displayed as h2 heading
+            'name' => 'Контакты в Краснодаре',
+
+            // and only now the array of fields
+            'fields' => array(
+                array(
+                    'id'	=> 'phone-krasnodar',
+                    'label' => 'Телефон',
+                    'type'	=> 'text',
+                ),
+                array(
+                    'id'	=> 'adres-krasnodar',
+                    'label' => 'Адрес',
+                    'type'	=> 'text',
+                ),
+                array(
+                    'id'	=> 'gmap-krasnodar',
+                    'label' => 'Ссылка на Gmaps',
+                    'type'	=> 'text',
+                ),
+            )
+        ),
+        array(
+            // section ID isn't used anywhere, but it is required
+            'id' => 'chelyabinsk',
+
+            // section name is displayed as h2 heading
+            'name' => 'Контакты в Челябинске',
+
+            // and only now the array of fields
+            'fields' => array(
+                array(
+                    'id'	=> 'phone-chelyabinsk',
+                    'label' => 'Телефон',
+                    'type'	=> 'text',
+                ),
+                array(
+                    'id'	=> 'adres-chelyabinsk',
+                    'label' => 'Адрес',
+                    'type'	=> 'text',
+                ),
+                array(
+                    'id'	=> 'gmap-chelyabinsk',
+                    'label' => 'Ссылка на Gmaps',
+                    'type'	=> 'text',
+                ),
+            )
+        ),
+        array(
+            // section ID isn't used anywhere, but it is required
+            'id' => 'novosibirsk',
+
+            // section name is displayed as h2 heading
+            'name' => 'Контакты в Новосибирске',
+
+            // and only now the array of fields
+            'fields' => array(
+                array(
+                    'id'	=> 'phone-novosibirsk',
+                    'label' => 'Телефон',
+                    'type'	=> 'text',
+                ),
+                array(
+                    'id'	=> 'adres-novosibirsk',
+                    'label' => 'Адрес',
+                    'type'	=> 'text',
+                ),
+                array(
+                    'id'	=> 'gmap-novosibirsk',
+                    'label' => 'Ссылка на Gmaps',
+                    'type'	=> 'text',
+                ),
+            )
+        ),
+        array(
+            // section ID isn't used anywhere, but it is required
+            'id' => 'krasnoyarsk',
+
+            // section name is displayed as h2 heading
+            'name' => 'Контакты в Красноярске',
+
+            // and only now the array of fields
+            'fields' => array(
+                array(
+                    'id'	=> 'phone-krasnoyarsk',
+                    'label' => 'Телефон',
+                    'type'	=> 'text',
+                ),
+                array(
+                    'id'	=> 'adres-krasnoyarsk',
+                    'label' => 'Адрес',
+                    'type'	=> 'text',
+                ),
+                array(
+                    'id'	=> 'gmap-krasnoyarsk',
+                    'label' => 'Ссылка на Gmaps',
+                    'type'	=> 'text',
+                ),
+            )
+        ),
+
+    )
+
+);
+
+if( class_exists( 'trueOptionspage' ) )
+    new trueOptionspage( $contacts );
+
+/*
+/* Дополнительные параметры в админку
+*/
+$options = array(
+    // yes, slug is the part of the option name, so, to get the value, use
+    // get_option( '{SLUG}_{ID}' );
+    // get_option( 'styles_headercolor' );
+    'slug'	=>	'styles',
+
+    // h2 title on your settings page
+    'title' => 'Дополнительные настройки для сайта',
+
+    // this displayed in admin menu, try to make it short
+    'menuname' => 'Свои настройки',
+
+    'capability'=>	'manage_options',
+
+    // WordPress option pages consist of sections, so,
+    // at first we create an array of sections and add fields in each section
+    'sections' => array(
+
+        // first section
+        array(
+
+            // section ID isn't used anywhere, but it is required
+            'id' => 'main',
+
+            // section name is displayed as h2 heading
+            'name' => 'Мета главной',
+
+            // and only now the array of fields
+            'fields' => array(
+                array(
+                    'id'	=> 'meta_title',
+                    'label' => 'Title',
+                    'description' => 'Title для главной страницы',
+                    'type'	=> 'text',
+                ),
+                array(
+                    'id'	=> 'meta_keywords',
+                    'label' => 'Keywords',
+                    'description' => 'Ключевые слова для главной страницы',
+                    'type'	=> 'textarea',
+                ),
+                array(
+                    'id'	=> 'meta_description',
+                    'label' => 'Description',
+                    'description' => 'Описание для главной страницы',
+                    'type'	=> 'textarea',
+                ),
+            )
+        ),
+
+    )
+);
+
+if( class_exists( 'trueOptionspage' ) )
+    new trueOptionspage( $options);

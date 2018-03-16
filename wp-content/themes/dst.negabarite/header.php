@@ -8,22 +8,29 @@
   <link rel="shortcut icon" href="/favicon.png" type="image/png">
   <?php wp_head(); ?>
   <?php
-  is_single(); {
-    $meta_title = $brand . $rent_info_model .' - продажа и аренда по всей стране. Арендовать спецтехнику, покупка спецтехники';
-    $meta_description = $brand . $rent_info_model .' - продажа и аренда по всей стране. Арендовать спецтехнику, покупка спецтехники';
+  if (is_single()) {
+    $meta_title =  get_post_meta( get_the_id(), 'page_desc', true);
+    $meta_description =  get_post_meta( $post->ID, 'page_desc', true);
+    $meta_keys = get_post_meta( get_the_id(), 'page_keys', true);
   }
-  is_page(); {
+  if (is_page()) {
       $meta_title = get_post_meta( get_the_id(), 'meta_page_title', true);
       $meta_description = get_post_meta( get_the_id(), 'meta_page_description', true);
+      $meta_keys = get_post_meta( get_the_id(), 'meta_page_keywords', true);
   }
-  is_front_page(); {
-      $meta_title = get_post_meta( get_the_id(), 'meta_page_title', true);
-      $meta_description = get_post_meta( get_the_id(), 'meta_page_description', true);
+  if (is_front_page()) {
+      $meta_title = get_option('styles_meta_title');
+      $meta_description = get_option('styles_meta_description');
+      $meta_keys = get_option('styles_meta_keywords');
   }
+
+
   ?>
 
   <title><?php echo $meta_title; ?></title>
-  <meta name="description" content="<?php echo $meta_description; ?>" />
+    <meta name="description" content="<?php echo $meta_description; ?>" />
+    <meta name="keywords" content="<?php echo $meta_keys; ?>" />
+
 </head>
 <style>
 html { margin-top: 0 !important; margin-bottom: 0 !important; }
