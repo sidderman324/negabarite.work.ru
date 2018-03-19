@@ -94,7 +94,6 @@
 
             $term_tech = $term->slug;
 
-            
 
             $class = "";
 
