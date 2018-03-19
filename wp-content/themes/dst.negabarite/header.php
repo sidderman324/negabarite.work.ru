@@ -187,37 +187,35 @@ html { margin-top: 0 !important; margin-bottom: 0 !important; }
 
         <ul class="location__select-list">
 
-          <li class="location__select-item"><a href="http://volgograd.negabarite.ru/">Волгоград</a></li>
+          <li class="location__select-item"><a href="http://volgograd.negabarite.ru<?=$_SERVER['REQUEST_URI']?>">Волгоград</a></li>
 
-          <li class="location__select-item"><a href="http://voronezh.negabarite.ru/">Воронеж</a></li>
+          <li class="location__select-item"><a href="http://voronezh.negabarite.ru<?=$_SERVER['REQUEST_URI']?>">Воронеж</a></li>
 
-          <li class="location__select-item"><a href="http://ekaterinburg.negabarite.ru/">Екатеринбург</a></li>
+          <li class="location__select-item"><a href="http://ekaterinburg.negabarite.ru<?=$_SERVER['REQUEST_URI']?>">Екатеринбург</a></li>
 
-          <li class="location__select-item"><a href="http://kazan.negabarite.ru/">Казань</a></li>
+          <li class="location__select-item"><a href="http://kazan.negabarite.ru<?=$_SERVER['REQUEST_URI']?>">Казань</a></li>
 
-          <li class="location__select-item"><a href="http://krasnodar.negabarite.ru/">Краснодар</a></li>
+          <li class="location__select-item"><a href="http://krasnodar.negabarite.ru<?=$_SERVER['REQUEST_URI']?>">Краснодар</a></li>
 
+          <li class="location__select-item"><a href="http://krasnoyarsk.negabarite.ru<?=$_SERVER['REQUEST_URI']?>">Красноярск</a></li>
 
+          <li class="location__select-item"><a href="http://moscow.negabarite.ru<?=$_SERVER['REQUEST_URI']?>">Москва</a></li>
 
-          <li class="location__select-item"><a href="http://krasnoyarsk.negabarite.ru/">Красноярск</a></li>
+          <li class="location__select-item"><a href="http://novosibirsk.negabarite.ru<?=$_SERVER['REQUEST_URI']?>">Новосибирск</a></li>
 
-          <li class="location__select-item"><a href="http://moscow.negabarite.ru/">Москва</a></li>
+          <li class="location__select-item"><a href="http://novgorod.negabarite.ru<?=$_SERVER['REQUEST_URI']?>">Новгород</a></li>
 
-          <li class="location__select-item"><a href="http://novosibirsk.negabarite.ru/">Новосибирск</a></li>
+          <li class="location__select-item"><a href="http://omsk.negabarite.ru<?=$_SERVER['REQUEST_URI']?>">Омск</a></li>
 
-          <li class="location__select-item"><a href="http://novgorod.negabarite.ru/">Новгород</a></li>
+          <li class="location__select-item"><a href="http://perm.negabarite.ru<?=$_SERVER['REQUEST_URI']?>">Пермь</a></li>
 
-          <li class="location__select-item"><a href="http://omsk.negabarite.ru/">Омск</a></li>
+          <li class="location__select-item"><a href="http://rostovnadonu.negabarite.ru<?=$_SERVER['REQUEST_URI']?>">Ростов-на-Дону</a></li>
 
-          <li class="location__select-item"><a href="http://perm.negabarite.ru/">Пермь</a></li>
+          <li class="location__select-item"><a href="http://saintpetersburg.negabarite.ru<?=$_SERVER['REQUEST_URI']?>">Санкт-Петербург</a></li>
 
-          <li class="location__select-item"><a href="http://rostovnadonu.negabarite.ru/">Ростов-на-Дону</a></li>
+          <li class="location__select-item"><a href="http://ufa.negabarite.ru<?=$_SERVER['REQUEST_URI']?>">Уфа</a></li>
 
-          <li class="location__select-item"><a href="http://saintpetersburg.negabarite.ru/">Санкт-Петербург</a></li>
-
-          <li class="location__select-item"><a href="http://ufa.negabarite.ru/">Уфа</a></li>
-
-          <li class="location__select-item"><a href="http://chelyabinsk.negabarite.ru/">Челябинск</a></li>
+          <li class="location__select-item"><a href="http://chelyabinsk.negabarite.ru<?=$_SERVER['REQUEST_URI']?>">Челябинск</a></li>
 
         </ul>
 
