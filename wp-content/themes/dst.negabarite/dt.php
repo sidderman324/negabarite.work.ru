@@ -35,6 +35,6 @@
   </section>
 
 
-<?php  get_template_part( '/modules/consult.php'); ?>
+<?php  get_template_part( '/modules/consult'); ?>
 
 <?php get_footer(); ?>
