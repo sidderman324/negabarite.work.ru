@@ -77,6 +77,7 @@
   <meta name="keywords" content="<?php echo $meta_keys; ?>" />
 
 
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 
 </head>
 

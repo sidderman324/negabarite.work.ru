@@ -33,7 +33,8 @@ require_once( ABSPATH . 'wp-admin/includes/media.php' );
   <div class="container">
     <form action="<?php echo admin_url('admin-ajax.php?action=send_form'); ?>" method="post" id="sell_form" enctype="multipart/form-data" class="form__inner">
 
-      <?php 
+      <?php
+
       $rent_sale = get_post_meta($post->ID, 'meta_page_rent_sale', true);
       if($rent_sale == "Продажа") {
         echo '<div class="form__row">';
@@ -97,11 +98,18 @@ require_once( ABSPATH . 'wp-admin/includes/media.php' );
       <p class="form__text">Комментарии</p>
       <textarea type="text" name="comment" class="form__input form__input--big"></textarea>
     </div>
-    <div class="form__row form__row--wide">
-      <p class="form__text">Дополнительное<br> оборудование</p>
-      <textarea type="text" name="add_equip" class="form__input form__input--big"></textarea>
-    </div>
-    <input type="submit" id="form_send" class="form__submit form-send-mail" name="" value="Опубликовать">
+        <div class="form__row form__row--wide">
+            <p class="form__text">Дополнительное<br> оборудование</p>
+            <textarea type="text" name="add_equip" class="form__input form__input--big"></textarea>
+        </div>
+
+        <div class="form__row form__row--wide">
+            <p class="form__text"></p>
+            <div class="g-recaptcha " data-sitekey="6LfMa00UAAAAANe6BAjIBqFiLTgSsT2xG-M6tFul"></div>
+        </div>
+
+        <input type="submit" id="form_send" class="form__submit form-send-mail" name="" value="Опубликовать">
+
   </form>
 </div>
 </div>

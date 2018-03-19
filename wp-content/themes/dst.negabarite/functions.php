@@ -385,10 +385,10 @@ function send_form() {
 
 	$post_data = array(
 		'post_title'    => $brand .' '. $model,
-		'post_status'   => 'publish',
+		'post_status'   => 'pending',
 		'post_author'   => 1,
 		'post_type' => 'catalog_technics',
-		'meta_input'    => array( 
+		'meta_input'    => array(
 			'category_id' => $category_id,
 			'tech_info_price' => $price,
 			'tech_info_working_time' => $working_time,
@@ -405,35 +405,58 @@ function send_form() {
 		),
 	);
 
-	/* Добавляем пост */
-	$post = wp_insert_post( $post_data );
+	//----------Проверка Капчи
+    // ваш секретный ключ
+    $secret = "6LfMa00UAAAAABl0J0mXJpvs0OnD7xoq-oxewNGe";
 
-	$url = get_permalink($post, false);
+// пустой ответ
+    $response = null;
 
-	/* Присваиваем посту категорию */
-	wp_set_object_terms( $post, $category_id, 'category' );
-	/* Присваиваем посту тэг с городом */
-	wp_set_object_terms( $post, $location, 'cities' );
+// проверка секретного ключа
+    $reCaptcha = new ReCaptcha($secret);
 
-	if ( $_FILES ) {
-		$files = $_FILES["photo"];
-		foreach ($files['name'] as $key => $value) {
-			if ($files['name'][$key]) {
-				$file = array(
-					'name' => $files['name'][$key],
-					'type' => $files['type'][$key], 
-					'tmp_name' => $files['tmp_name'][$key], 
-					'error' => $files['error'][$key],
-					'size' => $files['size'][$key]
-				);
-				$_FILES = array ("photo" => $file); 
-				foreach ($_FILES as $file => $array) {
-					$newupload = kv_handle_attachment($file,$post); 
-				}
-			} 
-		} 
-	}
-	wp_redirect($url); 
+    // if submitted check response
+    if ($_POST["g-recaptcha-response"]) {
+        $response = $reCaptcha->verifyResponse(
+            $_SERVER["REMOTE_ADDR"],
+            $_POST["g-recaptcha-response"]
+        );
+    }
+
+    if ($response != null && $response->success) {
+        /* Добавляем пост */
+        $post = wp_insert_post( $post_data );
+
+        $url = get_permalink($post, false);
+
+        /* Присваиваем посту категорию */
+        wp_set_object_terms( $post, $category_id, 'category' );
+        /* Присваиваем посту тэг с городом */
+        wp_set_object_terms( $post, $location, 'cities' );
+
+        if ( $_FILES ) {
+            $files = $_FILES["photo"];
+            foreach ($files['name'] as $key => $value) {
+                if ($files['name'][$key]) {
+                    $file = array(
+                        'name' => $files['name'][$key],
+                        'type' => $files['type'][$key],
+                        'tmp_name' => $files['tmp_name'][$key],
+                        'error' => $files['error'][$key],
+                        'size' => $files['size'][$key]
+                    );
+                    $_FILES = array ("photo" => $file);
+                    foreach ($_FILES as $file => $array) {
+                        $newupload = kv_handle_attachment($file,$post);
+                    }
+                }
+            }
+        }
+        wp_redirect($url);
+    } else {
+        wp_redirect($_SERVER['HTTP_REFERER'].'/prodat-tehniku/');
+    }
+
 
 	/* Завершаем выполнение ajax */
 	die();
