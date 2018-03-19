@@ -103,6 +103,8 @@
 
         'post_type' => 'catalog_technics',
 
+          'meta_key' => 'tech_info_rent_sale',
+          'meta_value'=> 'Аренда',
       );
 
       $posts = new WP_Query( $args );

@@ -359,7 +359,6 @@ function send_form() {
 	$category_id = $_POST['category'];
 	$price = $_POST['price'];
 	$brand = $_POST['brand'];
-
 	$model = $_POST['model'];
 	$year = $_POST['year'];
 	$working_time = $_POST['working_time'];

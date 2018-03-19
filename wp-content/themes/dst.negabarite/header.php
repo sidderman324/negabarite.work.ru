@@ -316,6 +316,7 @@ html { margin-top: 0 !important; margin-bottom: 0 !important; }
             <li class="submenu__item"><a href="/katalog-tehniki/" class="submenu__link">Продажа ДСТ</a></li>
 
             <li class="submenu__item"><a href="/katalog-tehniki/" class="submenu__link">Продажа ДТ</a></li>
+
             <li class="submenu__item"><a href="/prodat-tehniku/" class="submenu__link">Продать технику</a></li>
           </ul>
 

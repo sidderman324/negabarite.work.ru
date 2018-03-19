@@ -41,6 +41,7 @@ require_once( ABSPATH . 'wp-admin/includes/media.php' );
         echo '<p class="form__text">Стоимость</p> ';
         echo '<input name="price" type="text" class="form__input">';
         echo '</div>';
+
       } 
       ?>      
       <div class="form__row">

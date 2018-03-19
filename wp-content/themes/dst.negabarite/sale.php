@@ -225,6 +225,10 @@
 
         'post_type' => 'catalog_technics',
 
+          'meta_key' => 'tech_info_rent_sale',
+          
+          'meta_value'=> 'Продажа',
+
         'orderby' => array( 
 
           'date' => $sort_date,
@@ -245,16 +249,14 @@
 
         'field'     => 'slug', 
 
-        'terms' => $_GET['sort_city'], 
+        'terms' => $_GET['sort_city'],
+
 
       );}
 
 
 
        $posts = new WP_Query( $args );
-
-
-
 
 
        if (!$posts->have_posts()):
@@ -275,9 +277,10 @@
 
        while( $posts->have_posts() ) :
 
-        $year = get_post_meta( get_the_id(), 'tech_info_year', true);
-
            $posts->the_post();
+
+
+           $year = get_post_meta( get_the_id(), 'tech_info_year', true);
 
            $rent_info_price = get_post_meta( get_the_id(), 'tech_info_price', true);
 
