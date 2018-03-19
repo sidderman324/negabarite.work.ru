@@ -278,11 +278,22 @@
 
         $year = get_post_meta( get_the_id(), 'tech_info_year', true);
 
-        $rent_info_price = get_post_meta( get_the_id(), 'tech_info_price', true);
+           $posts->the_post();
 
+           $rent_info_price = get_post_meta( get_the_id(), 'tech_info_price', true);
 
+           $rent_info_cat = get_post_meta( get_the_id(), 'category_id', true);
 
-        $posts->the_post();
+           $tech = array(
+               'buldozer' => 'Бульдозер',
+               'excavator' => 'Экскаватор',
+               'pogruzchik' => 'Погрузчик',
+               'samosval' => 'Самосвал',
+               'autokran' => 'Автокран',
+               'road_ratok' => 'Дорожный каток',
+               'asphaltoukladchik' => 'Асфальтоукладчик',
+               'burovaya_ustanovka' => 'Буровая установка',
+           );
 
         $rent_info_brand = get_post_meta( get_the_id(), 'tech_info_brand', true); 
 
@@ -316,11 +327,11 @@
 
           </div>
 
-          <p class="catalog-card__type">Бульдозер</p>
+          <p class="catalog-card__type"><?=$tech[$rent_info_cat]?></p>
 
-          <p class="catalog-card__text catalog-card__text--normal">KOMATSU D65EX-16</p>
+          <p class="catalog-card__text catalog-card__text--normal"><?= $rent_info_brand.' '.$rent_info_model?></p>
 
-          <p class="catalog-card__price">4 250 340</p>
+          <p class="catalog-card__price"><?= $rent_info_price.' р.'?></p>
 
         </a>
 
