@@ -4,7 +4,7 @@
       <h2 class="consult__title">Консультация</h2>
       <p class="consult__subtitle">Появились вопросы?</p>
     </div>
-    <a href="#" class="consult__btn">Задать вопрос</a>
+    <a href="#" class="consult__btn btn_popup">Задать вопрос</a>
     <p class="consult__text">Мы подробно расскажем о наших услугах, видах работ,<br> рассчитаем стоимость и подготовим индивидуальное предложение!</p>
   </div>
 </section>

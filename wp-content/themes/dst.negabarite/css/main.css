@@ -494,7 +494,7 @@ body {
   transition: 0.3s;
 }
 .logo {
-  width: 80px;
+  width: 100px;
   text-decoration: none;
 }
 .logo__title {
@@ -513,7 +513,8 @@ body {
   width: 77px;
   height: 20px;
   background-image: repeating-linear-gradient(-45deg, #323232, #323232 8px, #ffdc26 8px, #ffdc26 14px);
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   bottom: -24px;
   position: absolute;
 }
@@ -543,6 +544,7 @@ body {
   line-height: 39px;
   color: #ffffff;
   text-decoration: none;
+  cursor: pointer;
 }
 .main-menu__btn {
   display: inline-block;
@@ -964,6 +966,14 @@ body {
   -ms-flex-preferred-size: 66%;
   flex-basis: 66%;
 }
+.about__text-wrapper h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  color: #323232;
+  margin-bottom: 25px;
+  line-height: 22px;
+}
 .about__text-wrapper h2 {
   font-size: 18px;
   font-weight: bold;
@@ -977,6 +987,23 @@ body {
   color: #323232;
   margin-bottom: 25px;
   line-height: 20px;
+}
+.about__text-wrapper {
+  font-size: 16px;
+  color: #323232;
+  margin-bottom: 25px;
+  line-height: 20px;
+  text-align: justify;
+}
+.about__text-wrapper h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+  color: #323232;
+  margin-bottom: 25px;
+  line-height: 22px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 .about__text-wrapper ul {
   padding-left: 15px;
@@ -2586,7 +2613,7 @@ body {
     line-height: 25px;
   }
   .promo__btn--yellow {
-    margin-right: 20px;
+    /*margin-right: 20px;*/
   }
   .promo__mask {
     background-color: rgba(255, 255, 255, 0.6);
@@ -3200,6 +3227,17 @@ body {
   }
   .form__row--wide {
     width: 90%;
+  }
+  .promo__btn-wrapper {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+    padding-top: 35px;
   }
 }
 @media (min-width: 1200px) {
