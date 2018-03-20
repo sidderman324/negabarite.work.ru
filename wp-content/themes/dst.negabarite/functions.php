@@ -270,8 +270,13 @@ $author_about = array(
 			'placeholder' 	=> 'Введите стоимость'
 		),
 		array(
-			'id'	=> 'rent_sale',
-			'type'	=> 'hidden',
+            'id'	=> 'rent_sale',
+            'label' => 'Аренда/Продажа',
+            'type'	=> 'select',
+            'args' => array(
+                'Аренда'=>'Аренда',
+                'Продажа'=>'Продажа'
+            ),
 		),
 		array(
 			'id'	=> 'working_time',
