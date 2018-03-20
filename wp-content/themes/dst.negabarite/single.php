@@ -21,7 +21,7 @@
 		$operation_time = get_post_meta( get_the_id(), 'tech_info_working_time', true); 
 		$rent_info_city = get_post_meta( get_the_id(), 'tech_info_location', true); 
 		$rent_info_phone = get_post_meta( get_the_id(), 'tech_info_phone', true); 
-		$rent_info_sale = get_post_meta( get_the_id(), 'checkbox_field', true); 
+		$rent_info_sale = get_post_meta( get_the_id(), 'tech_info_rent_sale', true);
 		$rent_info_description = get_post_meta( get_the_id(), 'tech_info_comment', true); 
 		$rent_info_add_eqiup = get_post_meta( get_the_id(), 'tech_info_add_equip', true);
 
@@ -34,7 +34,7 @@
 		</div>
 
 		<div class="catalog__btn-wrapper catalog__btn-wrapper--good-page">
-			<?php if($rent_info_sale=="продажа") {
+			<?php if($rent_info_sale=="Продажа") {
 				echo '<a href="#" class="catalog__btn catalog__btn--yellow btn_popup">Купить</a>';
 			} else {
 				echo '<a href="#" class="catalog__btn catalog__btn--yellow btn_popup">Арендовать</a>';
@@ -79,7 +79,7 @@
 		<div class="good-info__block">
 			<div class="good-info__features">
 				<ul class="good-info__features-list">
-					<?php if($rent_info_sale=="продажа") {echo '<li class="good-info__features-item">
+					<?php if($rent_info_sale=="Продажа") {echo '<li class="good-info__features-item">
 					<span class="good-info__features-text">Цена</span><span class="good-info__features-text good-info__features-text--price">'. number_format($rent_info_price, 0, ",", " ") .' <img src="'.get_template_directory_uri().'/img/rouble_icon.png" class="icon_rouble"></span>
 					</li>';}
 

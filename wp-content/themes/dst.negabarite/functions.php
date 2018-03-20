@@ -391,9 +391,16 @@ function send_form() {
         'asphaltoukladchik' => 'асфальтоукладчика',
         'burovaya_ustanovka' => 'буровой установки',
     );
+    if($rent_sale == 'Аренда'){
+        $descrip = "Аренда ".$tech[$category_id]." ".$brand." ".$model." ".$year." в ".$location;
+        $keys = "Аренда спецтехники, Аренда ".$tech[$category_id].", ".$brand." ".$model.", ".$location.", Негабарит онлайн";
+    }
 
-    $descrip = "Аренда ".$tech[$category_id]." ".$brand." ".$model." ".$year." в ".$location;
-    $keys = "Аренда спецтехники, Аренда ".$tech[$category_id].", ".$brand." ".$model.", ".$location.", Негабарит онлайн";
+    if($rent_sale == 'Продажа'){
+        $descrip = "Продажа ".$tech[$category_id]." ".$brand." ".$model." ".$year." в ".$location;
+        $keys = "Продажа спецтехники, Продажа ".$tech[$category_id].", ".$brand." ".$model.", ".$location.", Негабарит онлайн";
+    }
+
 
 	$post_data = array(
 		'post_title'    => $brand .' '. $model,
