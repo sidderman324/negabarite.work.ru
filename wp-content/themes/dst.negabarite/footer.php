@@ -19,9 +19,6 @@
 
 
 
-
-
-
         <ul>
 
             <?php global $gorod; ?>
@@ -56,10 +53,6 @@
 
 
 
-
-
-
-
     <div class="page-footer__column">
 
 
@@ -73,7 +66,6 @@
 
 
         <ul>
-
 
 
           <li class="footer-link__item"><a href="/remont-dorog<?= $gorod ?>/" class="footer-link__link">Ремонт дорог</a></li>
@@ -104,10 +96,6 @@
 
 
 
-
-
-
-
       <div class="footer-link">
 
 
@@ -124,7 +112,7 @@
 
 
 
-          <li class="footer-link__item"><a href="/katalog-tehniki/" class="footer-link__link">Продажа дизельного топлива</a></li>
+          <li class="footer-link__item"><a href="/prodazha-dizelnogo-topliva<?= $gorod ?>/" class="footer-link__link">Продажа дизельного топлива</a></li>
 
 
 
@@ -137,10 +125,6 @@
 
 
     </div>
-
-
-
-
 
 
 
@@ -160,15 +144,7 @@
 
 
 
-
-
-
-
       <div class="page-footer__contant-wrapper">
-
-
-
-
 
 
 
@@ -194,10 +170,6 @@
 
 
     </div>
-
-
-
-
 
 
 
@@ -230,8 +202,6 @@
 
 
 </footer>
-
-
 
 
 
