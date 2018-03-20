@@ -1698,7 +1698,7 @@ body {
 .page-footer__phone:before {
   content: '';
   display: inline-block;
-  background-image: url("/img/icon_phone-gray.png");
+  background-image: url("../img/icon_phone-gray.png");
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -1719,7 +1719,7 @@ body {
 .page-footer__mail:before {
   content: '';
   display: inline-block;
-  background-image: url("/img/icon_mail-1-gray.png");
+  background-image: url("../img/icon_mail-1-gray.png");
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -1740,7 +1740,7 @@ body {
 .page-footer__address:before {
   content: '';
   display: inline-block;
-  background-image: url("/img/icon_placemarker-gray.png");
+  background-image: url("../img/icon_placemarker-gray.png");
   position: absolute;
   top: 25%;
   transform: translateY(-50%);
