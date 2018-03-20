@@ -1,155 +1,309 @@
 jQuery(document).ready(function() {
+
   // подмена картинок в типе техники
+
   jQuery('.type__item').hover(
+
     function() {
+
       var hoverImg = jQuery(this).find('.type__img').attr('data-hover-img');
+
       jQuery(this).find('.type__img').attr('src', hoverImg);
+
     },
+
     function() {
+
       var unhoverImg = jQuery(this).find('.type__img').attr('data-unhover-img');
+
       jQuery(this).find('.type__img').attr('src', unhoverImg);
+
     });
+
   // подмена картинок в типе услуг
+
   jQuery('.service-card').hover(
+
     function() {
+
       var hoverImg = jQuery(this).find('.service-card__img').attr('data-hover-img');
+
       jQuery(this).find('.service-card__img').attr('data-hover-img');
+
       jQuery(this).find('.service-card__img').attr('src', hoverImg);
+
     },
+
     function() {
+
       var unhoverImg = jQuery(this).find('.service-card__img').attr('data-unhover-img');
+
       jQuery(this).find('.service-card__img').attr('data-unhover-img');
+
       jQuery(this).find('.service-card__img').attr('src', unhoverImg);
+
     });
+
+
 
   jQuery('.page-header__burger-wrapper').on('click', function() {
+
     jQuery(this).find('.page-header__burger').toggleClass('page-header__burger--active');
+
     jQuery('.main-menu').slideToggle(300);
+
     jQuery('.submenu').fadeOut(300);
+
     jQuery('.main-menu__marker').removeClass('main-menu__marker--active');
+
   });
+
+
 
   jQuery('.main-menu__marker').on('click', function() {
+
     jQuery(this).siblings('.submenu').slideToggle(300);
+
     jQuery(this).toggleClass('main-menu__marker--active');
+
   });
+
+
 
   jQuery(function() {
+
     jQuery("a[href*='#*']").bind('click', function() {
+
       var _href = jQuery(this).attr("href");
+
       jQuery("html, body").animate({
+
         scrollTop: jQuery(_href).offset().top + "px"
+
       }, 800);
+
       return false;
+
     });
+
   });
+
+
 
   function menuHideShow() {
+
     var windowsWidth = jQuery(window).width();
+
     if (windowsWidth > 768) {
+
       jQuery('.main-menu').fadeIn(300);
+
       jQuery('.page-header__burger').removeClass('page-header__burger--active');
+
     }
+
   };
 
+
+
   jQuery(document).ready(menuHideShow);
+
   jQuery(document).scroll(menuHideShow);
+
   jQuery(window).resize(menuHideShow);
 
+
+
   jQuery('.contacts__link').on('click', function(e) {
+
     e.preventDefault();
+
     var activeLink = jQuery(this).hasClass('contacts__link--active');
+
     if (activeLink == true) {
+
       var mapScroll = jQuery('#map_wrapper').offset().top - 50;
+
       jQuery("html, body").animate({
+
         scrollTop: mapScroll + "px"
+
       }, 800);
+
       return false;
+
     } else {
+
       var mapLink = jQuery(this).attr('href');
+
       jQuery('.contacts__link').removeClass('contacts__link--active');
+
       jQuery(this).addClass('contacts__link--active');
+
       jQuery('#map_wrapper').attr('src', mapLink);
+
       var mapScroll = jQuery('#map_wrapper').offset().top - 50;
+
       jQuery("html, body").animate({
+
         scrollTop: mapScroll + "px"
+
       }, 800);
+
       return false;
+
     }
+
   });
+
+
+
 
   jQuery('.catalog-filter__sticker').on('click', function() {
+
     var filter_position = parseInt(jQuery('.catalog-filter').css('left'));
+
     if (filter_position != 0) {
+
       jQuery('.catalog-filter').animate({
+
         left: "0px"
+
       }, 500);
+
     } else {
+
       jQuery('.catalog-filter').animate({
+
         left: "-220px"
+
       }, 500);
+
     }
+
   });
+
+
 
   jQuery('.gallery__nav').on('click', function() {
+
     var navImageSrc = jQuery(this).attr('src');
+
     jQuery('.gallery__big').attr('src', navImageSrc);
+
   });
 
+
+
   jQuery('.pagination').on('click', function() {
+
     jQuery("html, body").animate({
+
       scrollTop: "0px"
+
     }, 1000);
+
   });
+
+
+
 
 
   jQuery('.btn_popup').on('click',function(e){
+
     e.preventDefault();
+
     jQuery('.feedback-form').fadeIn(300);
+
     jQuery('.feedback-form__bgr-mask').fadeIn(300);
+
   });
+
   jQuery('.feedback-form__bgr-mask').on('click',function(e){
+
     e.preventDefault();
+
     jQuery('.feedback-form').fadeOut(300);
+
     jQuery('.feedback-form__bgr-mask').fadeOut(300);
+
   });
+
+
+
+
+
 
 
 
 
   jQuery('.wpuf-submit-button').on('click', function(){
+
     var srcImgArr = [];
+
     jQuery(".attachment-name").each(function(indx, element){
+
       srcImgArr.push(jQuery(element).find("img").attr("src"));
+
       jquery("#gallery_photo_list_93").attr("value", srcImgArr);
+
       console.log(srcImgArr);
+
     });
+
   });
 
+
+
   jQuery('#rent_info_year_made_327').html('type','number');
+
   jQuery('#rent_info_operation_time_327').html('type','number');
+
   jQuery('#rent_info_price_93').html('type','number');
+
   jQuery('#rent_info_price_327').html('type','number');
+
   jQuery('#rent_info_year_made_93').html('type','number');
+
   jQuery('#rent_info_operation_time_93').html('type','number');
+
   jQuery('.wpuf-submit-button').val("Отправить");
+
   jQuery('#rent_info_year_made_327').html('type','number');
+
+
+
 
 
   jQuery(function($){
+
     jQuery("#phone").mask("+7 (999) 999-9999");
+    jQuery("#year").mask("9999");
+
   });
 
+
+
   
+
   jQuery('.good-info__features-btn').on('click', function(e){
+
     e.preventDefault();
+
     jQuery('.good-info__features-phone--left').fadeIn(200);
+
     jQuery('.good-info__features-btn').css('display','none');
+
   });
+
+
+
+
 
 
 
   function form_logic() {
+
     // Массивы брендов для категорий
     /* Бульдозеры */
     var brand_for_cat_1 = ['Caterpillar','Hbxg','Komatsu','Shantui','Shehwa','Xcmg','Xgma','Zoomlion','Четра','ЧЗПТ','ЧТЗ','Четра'];
@@ -168,12 +322,23 @@ jQuery(document).ready(function() {
     /* Асфальтоукладчики */
     var brand_for_cat_20 = ['Caterpillar','Bomag','Mitsubishi','HAMM','Vogele','Titan'];
 
+
     // Проверка выбранной категории
     var category = jQuery('#category').val();
     console.log('Категория: ' + category);
     jQuery('#brand').empty();
     var current_brand = [];
     // Выбор массива с брендами
+
+    if(jQuery('#location').hasClass('kladr-error')) {
+      console.log('err');
+      jQuery('#form_send').attr('disabled','disabled');
+      jQuery('#form_send').addClass('form__submit--disabled');
+    } else {
+      jQuery('#form_send').removeAttr('disabled');
+      jQuery('#form_send').removeClass('form__submit--disabled');
+    }
+
     switch(category){
       case "buldozer": current_brand = brand_for_cat_1; break; 
       case "burovaya_ustanovka": current_brand = brand_for_cat_21; break; 
@@ -185,27 +350,37 @@ jQuery(document).ready(function() {
       case "asphaltoukladchik": current_brand = brand_for_cat_20; break; // Асфальтоукладчики
       default: current_brand = brand_for_cat_1;
     }
+
     for (var i = 0; i < current_brand.length; i++) {
       var option_item = "<option class='brand_item' value="+current_brand[i]+">"+current_brand[i]+"</option>";
       jQuery('#brand').html(function(indx, oldHtml){
         return oldHtml + option_item;
       });
     }
+
   }
 
   jQuery(document).ready(form_logic);
   jQuery('#category').click(form_logic);
+  // jQuery('#location').click(form_logic);
+  // jQuery('textarea').click(form_logic);
 
 
+  jQuery('#form_send').on('click', function(e){
 
+    var attached = jQuery('#photo').val();
+    if(attached == "") {
+      jQuery('#result_upload').html('<span class="files_error">Файлы на выбраны</span>')
+      e.preventDefault();
+    } else {
+      console.log('NOT - empty');
+    }
 
-
-
+  });
 
   var form = jQuery('.form-send-mail'),
   action = form.attr('action'),
   pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
-
   form.find('.req-field').addClass('empty-field');
 
   function checkInput() {
@@ -225,6 +400,8 @@ jQuery(document).ready(function() {
     });
   }
 
+
+
   function lightEmpty() {
     form.find('.empty-field').addClass('rf-error');
     setTimeout(function () {
@@ -232,11 +409,12 @@ jQuery(document).ready(function() {
     }, 1000);
   }
 
+
+
   jQuery(document).on('submit', '.form-send-mail', function (e) {
     var formData = {
       photo: jQuery('#multiFiles').prop('value'),
     };
-
     $.ajax({
       type: 'POST',
       url: action,
@@ -249,12 +427,15 @@ jQuery(document).ready(function() {
         console.log(txtstatus);
         console.log(errorThrown);
       },
+
       success: function () {
         form.removeClass('is-sending').addClass('is-sending-complete');
       }
     });
     e.preventDefault();
   });
+
+
 
   jQuery(document).on('click', '.form-send-mail button[type="submit"]', function (e) {
     checkInput();
@@ -265,6 +446,8 @@ jQuery(document).ready(function() {
     }
   });
 
+
+
   jQuery(document).on('click', '.form-is-more button', function () {
     form.find('input').val('');
     form.find('textarea').val('');
@@ -272,13 +455,35 @@ jQuery(document).ready(function() {
   });
 
 
-  // jQuery('label').on('click', function(e){
-  //   e.preventDefault();
-  //   var name = jQuery(this).attr('for');
-  //   var sort = jQuery('#'+ name +'');
-  //   if (sort.val() == "DESC") { sort.val("ASC"); }
-  //   if (sort.val() == "ASC") { sort.val("DESC"); }
 
-  //   console.log(sort.val());
-  // })
+  jQuery("#photo").change(function(e) {
+    var f = e.target.files,
+    len = f.length;
+    jQuery('#result_upload').html("");
+    for (var i=0;i<len;i++){
+      // console.log(f[i].name);
+      var photoName = "<span class='files_success'>"+f[i].name+"</span>";
+      jQuery('#result_upload').html(function(indx, oldHtml){
+        return oldHtml + photoName;
+      });
+    }
+    // jQuery('#result_upload').html(function(indx, oldHtml){
+    //   return oldHtml + '<a href="#" id="delete_btn">DELETE</a>';
+    // });
+  });
+
+  // jQuery('#delete_btn').on('click', function(e){
+  //   e.preventDefault();
+  //   console.log(1230);
+  //   jQuery(".file-upload").html('<label><input type="file" id="photo" name="photo[]" multiple="multiple" required/><span>Загрузите фотографии</span></label>');
+  // });
+
+
+
+
+
+
+
+
 });
+
