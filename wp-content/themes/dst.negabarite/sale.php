@@ -333,7 +333,7 @@
 
           <p class="catalog-card__text catalog-card__text--normal"><?= $rent_info_brand.' '.$rent_info_model?></p>
 
-          <p class="catalog-card__price"><?= $rent_info_price.' р.'?></p>
+          <p class="catalog-card__price"><?= $rent_info_price ?></p>
 
         </a>
 

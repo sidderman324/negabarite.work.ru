@@ -80,7 +80,7 @@
 			<div class="good-info__features">
 				<ul class="good-info__features-list">
 					<?php if($rent_info_sale=="Продажа") {echo '<li class="good-info__features-item">
-					<span class="good-info__features-text">Цена</span><span class="good-info__features-text good-info__features-text--price">'. number_format($rent_info_price, 0, ",", " ") .' <img src="'.get_template_directory_uri().'/img/rouble_icon.png" class="icon_rouble"></span>
+					<span class="good-info__features-text">Цена</span><span class="good-info__features-text good-info__features-text--price">'.$rent_info_price.' <img src="'.get_template_directory_uri().'/img/rouble_icon.png" class="icon_rouble"></span>
 					</li>';}
 
 					?>
