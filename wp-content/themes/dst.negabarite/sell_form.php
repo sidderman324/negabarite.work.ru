@@ -80,7 +80,7 @@ require_once( ABSPATH . 'wp-admin/includes/media.php' );
 
         echo '<p class="form__text">Стоимость</p> ';
 
-        echo '<input name="price" type="text" class="form__input" placeholder="Введите стоимость">';
+        echo '<input name="price" type="number" class="form__input" placeholder="Введите стоимость в рублях">';
 
         echo '</div>';
 
