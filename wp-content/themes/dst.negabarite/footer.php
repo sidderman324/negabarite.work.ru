@@ -179,10 +179,15 @@
         <a href="mailto:zakaz@negabarite.com" class="page-footer__mail"><?=get_option('contact_email') ?></a>
 
 
+      <?php if (get_option('contact_adres'.$gorod)){ ?>
 
-          <a href="https://yandex.ru/maps/-/CBeRYCqfOD" class="page-footer__address"><? echo (get_option('contact_adres'.$gorod))? get_option('contact_adres'.$gorod): get_option('contact_adres') ?></a>
-
-
+          <a href="https://yandex.ru/maps/-/CBeRYCqfOD" class="page-footer__address"><? echo get_option('contact_adres'.$gorod) ?></a>
+        <?php } else {
+          if(get_option('contact_adres')!=''){?>
+          <a href="https://yandex.ru/maps/-/CBeRYCqfOD" class="page-footer__address"><? echo get_option('contact_adres') ?></a>
+          <?php }
+        }
+      ?>
 
       </div>
 
