@@ -1,13 +1,21 @@
-<?php 
+<?php
 
 function styleConnect(){
-	wp_enqueue_style( 'main', get_template_directory_uri() . '/css/main.css');
-	wp_enqueue_style( 'style', get_template_directory_uri() . '/style.css');
 
-	wp_enqueue_script( 'jquery', get_template_directory_uri() . '/js/jquery-3.1.1.js');
-	wp_enqueue_script( 'migrate', get_template_directory_uri() . '/js/jquery-migrate-1.4.1.min.js');
-	wp_enqueue_script( 'maskedinput', get_template_directory_uri() . '/js/jquery.maskedinput.min.js');
-	wp_enqueue_script( 'mainjs', get_template_directory_uri() . '/js/script.js');
+    wp_enqueue_style( 'main', get_template_directory_uri() . '/css/main.css');
+
+    wp_enqueue_style( 'style', get_template_directory_uri() . '/style.css');
+
+    wp_enqueue_script( 'jquery', get_template_directory_uri() . '/js/jquery-3.1.1.js');
+
+    wp_enqueue_script( 'migrate', get_template_directory_uri() . '/js/jquery-migrate-1.4.1.min.js');
+
+    wp_enqueue_script( 'maskedinput', get_template_directory_uri() . '/js/jquery.maskedinput.min.js');
+
+    wp_enqueue_script( 'kladr', get_template_directory_uri() . '/js/jquery.kladr.min.js');
+
+    wp_enqueue_script( 'mainjs', get_template_directory_uri() . '/js/script.js');
+
 }
 add_action( 'wp_enqueue_scripts', 'styleConnect' );
 
