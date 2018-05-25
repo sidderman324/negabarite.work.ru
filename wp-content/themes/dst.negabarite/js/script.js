@@ -284,7 +284,7 @@ jQuery(document).ready(function() {
 
 
 
-  
+
 
   jQuery('.good-info__features-btn').on('click', function(e){
 
@@ -306,21 +306,21 @@ jQuery(document).ready(function() {
 
     // Массивы брендов для категорий
     /* Бульдозеры */
-    var brand_for_cat_1 = ['Caterpillar','Hbxg','Komatsu','Shantui','Shehwa','Xcmg','Xgma','Zoomlion','Четра','ЧЗПТ','ЧТЗ','Четра'];
+    var brand_for_cat_1 = ['Caterpillar','Hbxg','Komatsu','Shantui','Shehwa','Xcmg','Xgma','Zoomlion','Четра','ЧЗПТ','ЧТЗ','Четра','Другая марка'];
     /* автокраны */
-    var brand_for_cat_18 = ['Daewoo','Dongyang','Grove','Hino','Isuzu','Kobelco','Liebherr','Mitsubishi','Nissan','Potain','Sany','Sennebogen','Soosan','Tadano','Tatra','Xcmg','Zoomlion','Галичанин','Ивановец','КамАЗ','Клинцы','МАЗ','Ульяновец','Урал','Челябинец','ЧТЗ'];
+    var brand_for_cat_18 = ['Daewoo','Dongyang','Grove','Hino','Isuzu','Kobelco','Liebherr','Mitsubishi','Nissan','Potain','Sany','Sennebogen','Soosan','Tadano','Tatra','Xcmg','Zoomlion','Галичанин','Ивановец','КамАЗ','Клинцы','МАЗ','Ульяновец','Урал','Челябинец','ЧТЗ','Другая марка'];
     /* Экскаваторы */
-    var brand_for_cat_15 = ['Case','Caterpillar','Doosan','Hitachi','Hyundai','IHI','Isuzu','JCB','John Deere','Kobelco','Komatsu','Kubota','New Holland','Sdlg','Tatra','Terex','Volvo','Yanmar','ДЭМ','ЕлАЗ','Твэкс','ЭО','Эксмаш'];
+    var brand_for_cat_15 = ['Case','Caterpillar','Doosan','Hitachi','Hyundai','IHI','Isuzu','JCB','John Deere','Kobelco','Komatsu','Kubota','New Holland','Sdlg','Tatra','Terex','Volvo','Yanmar','ДЭМ','ЕлАЗ','Твэкс','ЭО','Эксмаш','Другая марка'];
     /* Буровые */
-    var brand_for_cat_21 = ['Sunward','Casagrande','УАЗ','Урал','ЗИЛ','ГеоМаш','Bauer','Casagrande','Drillto'];
+    var brand_for_cat_21 = ['Sunward','Casagrande','УАЗ','Урал','ЗИЛ','ГеоМаш','Bauer','Casagrande','Drillto','Другая марка'];
     /* Самосвалы */
-    var brand_for_cat_17 = ['Baw','Beifang Benchi','Bell','Camc','Changan','Citroen','Daewoo','DAF','Dongfeng','FAW','Fiat','Ford','Forward','Foton','Freightliner','Hino','Howo"','Hyundai','International','Isuzu','Iveco','Kenworth','Kia','Liebherr','MAN','Mazda','Mercedes-Benz','Mitsubishi','Nissan','Peterbilt','Peugeot','Renault','Scania','Shaanxi Shacman','Tatra','Toyota','Volkswagen','Volvo','АгроТехМаш','ГАЗ','ЗИЛ','КамАЗ','Краз','МАЗ','Мзкт','Нефаз','САЗ','Стройдормаш','УАЗ','Урал'];
+    var brand_for_cat_17 = ['Baw','Beifang Benchi','Bell','Camc','Changan','Citroen','Daewoo','DAF','Dongfeng','FAW','Fiat','Ford','Forward','Foton','Freightliner','Hino','Howo"','Hyundai','International','Isuzu','Iveco','Kenworth','Kia','Liebherr','MAN','Mazda','Mercedes-Benz','Mitsubishi','Nissan','Peterbilt','Peugeot','Renault','Scania','Shaanxi Shacman','Tatra','Toyota','Volkswagen','Volvo','АгроТехМаш','ГАЗ','ЗИЛ','КамАЗ','Краз','МАЗ','Мзкт','Нефаз','САЗ','Стройдормаш','УАЗ','Урал','Другая марка'];
     /* Катки */
-    var brand_for_cat_19 = ['Ammann','Bomag','Caterpillar','Claas','Dynapac','Gomaco','Hamm','HBM-Nobas','Mitsubishi','Sakai','Sdlg','TSS','Volvo','Xcmg','Zoomlion','Брянский арсенал','ДЗ','Завод ДМ','Моаз','Раскат','Спецдормаш','ХТЗ','ЧКЗ','ЮМЗ'];
+    var brand_for_cat_19 = ['Ammann','Bomag','Caterpillar','Claas','Dynapac','Gomaco','Hamm','HBM-Nobas','Mitsubishi','Sakai','Sdlg','TSS','Volvo','Xcmg','Zoomlion','Брянский арсенал','ДЗ','Завод ДМ','Моаз','Раскат','Спецдормаш','ХТЗ','ЧКЗ','ЮМЗ','Другая марка'];
     /* Погрузчики */
-    var brand_for_cat_16 = ['ANT','Atlet','Balkancar','Bobcat','Bull','Case','Changlin','Dieci','Doosan','Genie','Gros','Hangcha','HBM-Nobas','Heli','Heracles','Hitachi','Hyster','Hyundai','HZM','JAC','JCB','John Deere','Komatsu','Kumpan','Laigong','Linde','Liugong','Lonking','Manitou','Megamax','Mitsuber','Mitsubishi','Mustang','NEO','Nissan','Sdlg','Sumitomo','Sunward','Tarsus','TCM','Terex','TOR','Toyota','Vmax','Xcmg','Xgma','Xilin','Амкодор','Барс','Брянский арсенал','МТЗ','Плавский','Урал','Уралвагонзавод'];
+    var brand_for_cat_16 = ['ANT','Atlet','Balkancar','Bobcat','Bull','Case','Changlin','Dieci','Doosan','Genie','Gros','Hangcha','HBM-Nobas','Heli','Heracles','Hitachi','Hyster','Hyundai','HZM','JAC','JCB','John Deere','Komatsu','Kumpan','Laigong','Linde','Liugong','Lonking','Manitou','Megamax','Mitsuber','Mitsubishi','Mustang','NEO','Nissan','Sdlg','Sumitomo','Sunward','Tarsus','TCM','Terex','TOR','Toyota','Vmax','Xcmg','Xgma','Xilin','Амкодор','Барс','Брянский арсенал','МТЗ','Плавский','Урал','Уралвагонзавод','Другая марка'];
     /* Асфальтоукладчики */
-    var brand_for_cat_20 = ['Caterpillar','Bomag','Mitsubishi','HAMM','Vogele','Titan'];
+    var brand_for_cat_20 = ['Caterpillar','Bomag','Mitsubishi','HAMM','Vogele','Titan','Другая марка'];
 
 
     // Проверка выбранной категории
@@ -340,13 +340,13 @@ jQuery(document).ready(function() {
     }
 
     switch(category){
-      case "buldozer": current_brand = brand_for_cat_1; break; 
-      case "burovaya_ustanovka": current_brand = brand_for_cat_21; break; 
-      case "road_ratok": current_brand = brand_for_cat_19; break; // 
+      case "buldozer": current_brand = brand_for_cat_1; break;
+      case "burovaya_ustanovka": current_brand = brand_for_cat_21; break;
+      case "road_ratok": current_brand = brand_for_cat_19; break; //
       case "pogruzchik": current_brand = brand_for_cat_16; break; // Погрузчики
-      case "samosval": current_brand = brand_for_cat_17; break; 
+      case "samosval": current_brand = brand_for_cat_17; break;
       case "excavator": current_brand = brand_for_cat_15; break;
-      case "autokran": current_brand = brand_for_cat_18; break; 
+      case "autokran": current_brand = brand_for_cat_18; break;
       case "asphaltoukladchik": current_brand = brand_for_cat_20; break; // Асфальтоукладчики
       default: current_brand = brand_for_cat_1;
     }
@@ -486,4 +486,3 @@ jQuery(document).ready(function() {
 
 
 });
-
